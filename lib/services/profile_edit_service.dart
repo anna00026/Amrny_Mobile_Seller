@@ -43,7 +43,7 @@ class ProfileEditService with ChangeNotifier {
   updateProfile(name, email, phone, cityId, areaId, countryId, postCode,
       address, about, String? imagePath, context) async {
     setLoadingTrue();
-    if (baseApi.toLowerCase().contains("qixer.bytesed.com")) {
+    if (baseApi.toLowerCase().contains("amrny.com")) {
       await Future.delayed(const Duration(seconds: 2));
       "This feature is turned off for demo app".showToast();
       setLoadingFalse();

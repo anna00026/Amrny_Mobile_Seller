@@ -34,7 +34,7 @@ class ChangePassService with ChangeNotifier {
       var connection = await checkConnection();
       if (connection) {
         setLoadingTrue();
-        if (baseApi.toLowerCase().contains("qixer.bytesed.com")) {
+        if (baseApi.toLowerCase().contains("amrny.com")) {
           await Future.delayed(const Duration(seconds: 2));
           "This feature is turned off for demo app".showToast();
           setLoadingFalse();
