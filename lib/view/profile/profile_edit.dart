@@ -8,6 +8,7 @@ import 'package:qixer_seller/services/app_string_service.dart';
 import 'package:qixer_seller/services/dropdowns_services/area_dropdown_service.dart';
 import 'package:qixer_seller/services/dropdowns_services/country_dropdown_service.dart';
 import 'package:qixer_seller/services/dropdowns_services/state_dropdown_services.dart';
+import 'package:qixer_seller/services/language_dropdown_helper.dart';
 import 'package:qixer_seller/services/profile_edit_service.dart';
 import 'package:qixer_seller/utils/common_helper.dart';
 import 'package:qixer_seller/utils/constant_colors.dart';
@@ -293,7 +294,12 @@ class _ProfileEditPageState extends State<ProfileEditPage> {
                       const SizedBox(
                         height: 3,
                       ),
+                      //dropdown for language
+                      LanguageDropdownHelper().languageDropdown(cc, context),
 
+                      const SizedBox(
+                        height: 18,
+                      ),
                       //dropdowns
                       const CountryStatesDropdowns(),
 

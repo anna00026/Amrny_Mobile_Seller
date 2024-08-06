@@ -2,6 +2,7 @@ import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
+import 'package:qixer_seller/services/app_string_service.dart';
 import 'package:qixer_seller/services/chart_service.dart';
 import 'package:qixer_seller/services/permissions_service.dart';
 import 'package:qixer_seller/services/profile_service.dart';
@@ -59,6 +60,7 @@ runAtStart(BuildContext context) {
 
   Provider.of<PermissionsService>(context, listen: false)
       .fetchUserPermissions(context);
+  Provider.of<AppStringService>(context, listen: false).loadInitialLanguage(context);
 }
 
 runAtSplashScreen(BuildContext context) async {

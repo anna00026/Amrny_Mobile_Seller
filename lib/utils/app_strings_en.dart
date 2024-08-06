@@ -1,4 +1,4 @@
-var appStrings = {
+var appStringsEn = {
   "Welcome back! Login": "Welcome back! Login",
   "Email or username": "Email or username",
   'Please enter your email': 'Please enter your email',
@@ -508,4 +508,7 @@ var appStrings = {
   "Applied": "Applied",
   "Job expired": "Job expired",
   "Hired": "Hired",
+  "Language": "Language",
+  "English": "English",
+  "Arabic": "Arabic",
 };

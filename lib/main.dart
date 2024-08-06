@@ -32,7 +32,7 @@ void main() async {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  const MyApp({super.key});
 
   // This widget is the root of your application.
   @override
@@ -40,7 +40,7 @@ class MyApp extends StatelessWidget {
     String key = DateTime.now().toString();
     return MultiProvider(
       key: ObjectKey(key),
-      providers:NotifierProviders.getNotifierProviders(),
+      providers: NotifierProviders.getNotifierProviders(),
       child: Consumer<RtlService>(
         builder: (context, rtlProvider, child) {
           return MaterialApp(
@@ -49,7 +49,21 @@ class MyApp extends StatelessWidget {
               GlobalWidgetsLocalizations.delegate,
               GlobalCupertinoLocalizations.delegate,
             ],
-            supportedLocales: [Locale(rtlProvider.langSlug.substring(0, 2))],
+            supportedLocales: [
+              Locale(rtlProvider.langSlug.substring(0, 2)),
+              const Locale('en', "US"),
+              const Locale('ar', "AR"),
+            ],
+            builder: (context, rtlchild) {
+              return Consumer<RtlService>(
+                builder: (context, rtlP, child) => Directionality(
+                  textDirection: rtlP.direction == 'ltr'
+                      ? TextDirection.ltr
+                      : TextDirection.rtl,
+                  child: rtlchild!,
+                ),
+              );
+            },
             title: 'Qixer seller',
             debugShowCheckedModeBanner: false,
             theme: ThemeData(

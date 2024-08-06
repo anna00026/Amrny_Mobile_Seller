@@ -91,4 +91,10 @@ class RtlService with ChangeNotifier {
       //already loaded from server. no need to load again
     }
   }
+  
+  changeDirection(String direction, String locale) {
+    this.direction = direction;
+    langSlug = locale;
+    notifyListeners();
+  }
 }
