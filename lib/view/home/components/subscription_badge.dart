@@ -42,9 +42,7 @@ class SubscriptionBadge extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              provider.subsData.type +
-                                  ' ' +
-                                  asProvider.getString('subscription'),
+                              asProvider.getString('Account Status'),
                               style: const TextStyle(
                                   color: Colors.white,
                                   fontSize: 15,
@@ -52,7 +50,7 @@ class SubscriptionBadge extends StatelessWidget {
                             ),
                             sizedBoxCustom(6),
                             Text(
-                              asProvider.getString('Expire date') +
+                              asProvider.getString('Active till') +
                                   ': ' +
                                   formatDate(provider.subsData.expireDate),
                               style: const TextStyle(

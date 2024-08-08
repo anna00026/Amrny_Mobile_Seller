@@ -476,6 +476,8 @@ var appStringsAr = {
   "Company Name": "اسم الشركة",
   "Please enter your company name": "يرجى إدخال اسم شركتك",
   "Enter your company name": "أدخل اسم شركتك",
+  "Account Status": "حالة الحساب",
+  "Active till": "نشط حتى",
   "Language": "اللغة",
   "English": "الإنجليزية",
   "Arabic": "العربية",

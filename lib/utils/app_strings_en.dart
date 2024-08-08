@@ -511,6 +511,8 @@ var appStringsEn = {
   "Company Name": "Company Name",
   "Please enter your company name": "Please enter your company name",
   "Enter your company name": "Enter your company name",
+  "Account Status": "Account Status",
+  "Active till": "Active till",
   "Language": "Language",
   "English": "English",
   "Arabic": "Arabic",
