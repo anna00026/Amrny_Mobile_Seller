@@ -19,6 +19,7 @@ import 'package:qixer_seller/services/deactivate_account_service.dart';
 import 'package:qixer_seller/services/dropdowns_services/area_dropdown_service.dart';
 import 'package:qixer_seller/services/dropdowns_services/country_dropdown_service.dart';
 import 'package:qixer_seller/services/dropdowns_services/state_dropdown_services.dart';
+import 'package:qixer_seller/services/employees/employees_service.dart';
 import 'package:qixer_seller/services/jobs/all_jobs_service.dart';
 import 'package:qixer_seller/services/jobs/job_conversation_service.dart';
 import 'package:qixer_seller/services/jobs/job_details_service.dart';
@@ -112,6 +113,7 @@ class NotifierProviders {
       ChangeNotifierProvider(create: (_) => DeleteAccountService()),
       ChangeNotifierProvider(
           create: (_) => CatSubcatDropdownServiceForEditService()),
+      ChangeNotifierProvider(create: (_) => EmployeesService()),
     ];
   }
 }

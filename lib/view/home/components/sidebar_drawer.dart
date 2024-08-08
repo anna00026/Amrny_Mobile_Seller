@@ -10,6 +10,7 @@ import 'package:qixer_seller/utils/constant_colors.dart';
 import 'package:qixer_seller/utils/others_helper.dart';
 import 'package:qixer_seller/utils/responsive.dart';
 import 'package:qixer_seller/view/create_schedule/schedule_list_page.dart';
+import 'package:qixer_seller/view/employees/my_employees_page.dart';
 import 'package:qixer_seller/view/jobs/jobs_request_page.dart';
 import 'package:qixer_seller/view/jobs/new_jobs_page.dart';
 import 'package:qixer_seller/view/live_chat/chat_list_page.dart';
@@ -304,6 +305,20 @@ class SidebarDrawer extends StatelessWidget {
                       MaterialPageRoute<void>(
                         builder: (BuildContext context) =>
                             const ProfileVerifyPage(),
+                      ),
+                    );
+                  }),
+
+                  SidebarMenuItem(
+                  title: 'Employees',
+                  leading:
+                      Icon(Icons.supervisor_account_rounded, color: cc.primaryColor),
+                  ontap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute<void>(
+                        builder: (BuildContext context) =>
+                            const MyEmployeesPage(),
                       ),
                     );
                   }),
