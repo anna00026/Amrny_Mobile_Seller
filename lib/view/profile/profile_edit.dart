@@ -35,6 +35,7 @@ class ProfileEditPage extends StatefulWidget {
 class _ProfileEditPageState extends State<ProfileEditPage> {
   TextEditingController fullNameController = TextEditingController();
   TextEditingController emailController = TextEditingController();
+  TextEditingController sellerLabelController = TextEditingController();
 
   TextEditingController postCodeController = TextEditingController();
   TextEditingController addressController = TextEditingController();
@@ -58,6 +59,11 @@ class _ProfileEditPageState extends State<ProfileEditPage> {
         Provider.of<ProfileService>(context, listen: false)
                 .profileDetails
                 .name ??
+            '';
+    sellerLabelController.text =
+        Provider.of<ProfileService>(context, listen: false)
+                .profileDetails
+                .seller_label ??
             '';
     emailController.text = Provider.of<ProfileService>(context, listen: false)
             .profileDetails
@@ -226,6 +232,26 @@ class _ProfileEditPageState extends State<ProfileEditPage> {
                             height: 8,
                           ),
 
+                          //Company Name ============>
+                          CommonHelper()
+                              .labelCommon(ln.getString("Company name")),
+
+                          CustomInput(
+                            controller: sellerLabelController,
+                            validation: (value) {
+                              if (value == null || value.isEmpty) {
+                                return ln.getString(
+                                    'Please enter your company name');
+                              }
+                              return null;
+                            },
+                            hintText: ln.getString("Enter your company name"),
+                            icon: 'assets/icons/user.png',
+                            textInputAction: TextInputAction.next,
+                          ),
+                          const SizedBox(
+                            height: 8,
+                          ),
                           //Email ============>
                           CommonHelper().labelCommon(ln.getString("Email")),
 
@@ -366,6 +392,7 @@ class _ProfileEditPageState extends State<ProfileEditPage> {
                           //update profile
                           var result = await provider.updateProfile(
                             fullNameController.text,
+                            sellerLabelController.text,
                             emailController.text,
                             phoneController.text,
                             Provider.of<StateDropdownService>(context,

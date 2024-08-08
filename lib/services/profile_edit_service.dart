@@ -40,8 +40,8 @@ class ProfileEditService with ChangeNotifier {
     }
   }
 
-  updateProfile(name, email, phone, cityId, areaId, countryId, postCode,
-      address, about, String? imagePath, context) async {
+  updateProfile(name, sellerLabel, email, phone, cityId, areaId, countryId,
+      postCode, address, about, String? imagePath, context) async {
     setLoadingTrue();
     if (baseApi.toLowerCase().contains("amrny.com")) {
       await Future.delayed(const Duration(seconds: 2));
@@ -73,7 +73,8 @@ class ProfileEditService with ChangeNotifier {
           'post_code': postCode,
           'address': address,
           'about': about,
-          'country_code': countryCode
+          'country_code': countryCode,
+          'seller_label': sellerLabel,
         });
       } else {
         formData = FormData.fromMap({
@@ -86,7 +87,8 @@ class ProfileEditService with ChangeNotifier {
           'post_code': postCode,
           'address': address,
           'about': about,
-          'country_code': countryCode
+          'country_code': countryCode,
+          'seller_label': sellerLabel,
         });
       }
       var response = await dio.post(

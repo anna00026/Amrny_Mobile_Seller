@@ -73,6 +73,7 @@ class UserDetails {
       this.postCode,
       this.image,
       this.countryCode,
+      this.sellerLabel,
       required this.country,
       required this.city,
       required this.area,
@@ -89,6 +90,7 @@ class UserDetails {
   String? serviceArea;
   String? postCode;
   String? image;
+  String? sellerLabel;
   dynamic countryCode;
   Country? country;
   City? city;
@@ -108,6 +110,7 @@ class UserDetails {
         postCode: json["post_code"],
         image: json["image"],
         countryCode: json["country_code"],
+        sellerLabel: json['seller_label'],
         country:
             json["country"] == null ? null : Country.fromJson(json["country"]),
         city: json["city"] == null ? null : City.fromJson(json["city"]),
@@ -127,6 +130,7 @@ class UserDetails {
         "service_area": serviceArea,
         "post_code": postCode,
         "image": image,
+        'seller_label': sellerLabel,
         "country_code": countryCode,
         "country": country?.toJson(),
         "city": city?.toJson(),
