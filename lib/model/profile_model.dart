@@ -75,6 +75,7 @@ class UserDetails {
       this.countryCode,
       this.sellerLabel,
       this.country,
+      this.userType,
       this.city,
       this.area,
       this.sellerVerify,
@@ -120,6 +121,7 @@ class UserDetails {
   String? twiUrl;
   String? piUrl;
   String? reUrl;
+  int? userType;
 
   factory UserDetails.fromJson(Map<String, dynamic> json) => UserDetails(
         id: json["id"],
@@ -151,6 +153,7 @@ class UserDetails {
         twiUrl: json['twi_url'],
         piUrl: json['pi_url'],
         reUrl: json['re_url'],
+        userType: json['user_type'],
       );
 
   Map<String, dynamic> toJson() => {
@@ -182,6 +185,7 @@ class UserDetails {
         'twi_url': twiUrl,
         'pi_url': piUrl,
         're_url': reUrl,
+        'user_type': userType,
       };
 }
 
