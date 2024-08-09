@@ -36,197 +36,177 @@ class MyEmployeesPageState extends State<MyEmployeesPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: CommonHelper().appbarCommon('Employees', context, () {
-        Navigator.pop(context);
-      }, actions: [
-        Container(
-          height: 36,
-          // width: 140,
-          margin: const EdgeInsets.symmetric(horizontal: 10),
-          child: IconButton(
-            onPressed: () async {
-              Navigator.push(
-                      context,
-                      MaterialPageRoute<void>(
-                        builder: (BuildContext context) => EmployeeEditPage(),
-                      ),
-                    );
-            },
-            style: ButtonStyle(
-              backgroundColor: WidgetStateProperty.resolveWith((states) {
-                return cc.primaryColor;
-              }),
-              shape:
-                  WidgetStateProperty.resolveWith<OutlinedBorder?>((states) {
-                return RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(8));
-                // }
-              }),
+    return Consumer<EmployeesService>(
+      builder: (context, provider, child) => Scaffold(
+        appBar: CommonHelper().appbarCommon('Employees', context, () {
+          Navigator.pop(context);
+        }, actions: [
+          Container(
+            height: 36,
+            // width: 140,
+            margin: const EdgeInsets.symmetric(horizontal: 10),
+            child: IconButton(
+              onPressed: () async {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute<void>(
+                    builder: (BuildContext context) => EmployeeEditPage(),
+                  ),
+                );
+              },
+              style: ButtonStyle(
+                backgroundColor: WidgetStateProperty.resolveWith((states) {
+                  return cc.primaryColor;
+                }),
+                shape:
+                    WidgetStateProperty.resolveWith<OutlinedBorder?>((states) {
+                  return RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8));
+                  // }
+                }),
+              ),
+              icon: Icon(
+                Icons.add,
+                color: cc.white,
+              ),
             ),
-            icon: Icon(
-              Icons.add,
-              color: cc.white,
-            ),
-          ),
-        )
-      ]),
-      backgroundColor: cc.bgColor,
-      body: SmartRefresher(
-        controller: refreshController,
-        enablePullUp: true,
-        enablePullDown:
-            context.watch<EmployeesService>().currentPage > 1 ? false : true,
-        onRefresh: () async {
-          final result =
-              await Provider.of<EmployeesService>(context, listen: false)
-                  .fetchEmployees(context);
-          if (result) {
-            refreshController.refreshCompleted();
-          } else {
-            refreshController.refreshFailed();
-          }
-        },
-        onLoading: () async {
-          final result =
-              await Provider.of<EmployeesService>(context, listen: false)
-                  .fetchEmployees(context);
-          if (result) {
-            debugPrint('loadcomplete ran');
-            //loadcomplete function loads the data again
-            refreshController.loadComplete();
-          } else {
-            debugPrint('no more data');
-            refreshController.loadNoData();
+          )
+        ]),
+        backgroundColor: cc.bgColor,
+        body: SmartRefresher(
+          controller: refreshController,
+          enablePullUp: true,
+          enablePullDown:
+              context.watch<EmployeesService>().currentPage > 1 ? false : true,
+          onRefresh: () async {
+            final result =
+                await Provider.of<EmployeesService>(context, listen: false)
+                    .fetchEmployees(context);
+            if (result) {
+              refreshController.refreshCompleted();
+            } else {
+              refreshController.refreshFailed();
+            }
+          },
+          onLoading: () async {
+            final result =
+                await Provider.of<EmployeesService>(context, listen: false)
+                    .fetchEmployees(context);
+            if (result) {
+              debugPrint('loadcomplete ran');
+              //loadcomplete function loads the data again
+              refreshController.loadComplete();
+            } else {
+              debugPrint('no more data');
+              refreshController.loadNoData();
 
-            Future.delayed(const Duration(seconds: 1), () {
-              //it will reset footer no data state to idle and will let us load again
-              refreshController.resetNoData();
-            });
-          }
-        },
-        child: SingleChildScrollView(
-          physics: physicsCommon,
-          child: Consumer<JobListService>(
-              builder: (context, provider, child) => Container(
-                    padding: EdgeInsets.symmetric(
-                        horizontal: screenPadding, vertical: 10),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        if (provider.isloading == false &&
-                            provider.jobReqList.isEmpty)
-                          OthersHelper().showError(context,
-                              message: "You don't have any employees"),
-                        for (int i = 0; i < provider.jobReqList.length; i++)
-                          Container(
-                            margin: const EdgeInsets.only(bottom: 16),
-                            width: double.infinity,
-                            padding: const EdgeInsets.symmetric(
-                                horizontal: 20, vertical: 16),
-                            decoration: BoxDecoration(
-                                color: Colors.white,
-                                borderRadius: BorderRadius.circular(9)),
-                            child: Row(
-                              children: [
-                                Expanded(
-                                  child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        CommonHelper().titleCommon(
-                                            provider.jobReqList[i].job.title ??
-                                                '',
-                                            fontsize: 15),
-                                        sizedBoxCustom(6),
-                                        CommonHelper().paragraphCommon(
-                                            asProvider
-                                                    .getString('Buyer budget') +
-                                                ': ${rtlProvider.currency}${provider.jobReqList[i].job.price ?? ''}',
-                                            TextAlign.left),
-                                        sizedBoxCustom(7),
-                                        CommonHelper().paragraphCommon(
-                                            asProvider.getString('Your offer') +
-                                                ': ${rtlProvider.currency}${provider.jobReqList[i].expectedSalary ?? ''}',
-                                            TextAlign.left,
-                                            color: cc.primaryColor),
-                                      ]),
-                                ),
-                                PopupMenuButton(
-                                  itemBuilder: (BuildContext context) =>
-                                      <PopupMenuEntry>[
-                                    PopupMenuItem(
-                                      onTap: () {
-                                        Future.delayed(Duration.zero, () {
-                                          Provider.of<JobDetailsService>(
-                                                  context,
-                                                  listen: false)
-                                              .setOrderDetailsLoadingStatus(
-                                                  true);
-
-                                          Navigator.push(
-                                            context,
-                                            MaterialPageRoute<void>(
-                                              builder: (BuildContext context) =>
-                                                  JobDetailsPage(
-                                                imageLink: provider
-                                                        .jobReqList[i]
-                                                        .jobImage ??
+              Future.delayed(const Duration(seconds: 1), () {
+                //it will reset footer no data state to idle and will let us load again
+                refreshController.resetNoData();
+              });
+            }
+          },
+          footer: commonRefreshFooter(context),
+          child: SingleChildScrollView(
+            physics: physicsCommon,
+            child: Consumer<EmployeesService>(
+                builder: (context, provider, child) => Container(
+                      padding: EdgeInsets.symmetric(
+                          horizontal: screenPadding, vertical: 10),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          if (provider.isLoading == false &&
+                              provider.allEmployeesList.isEmpty)
+                            OthersHelper().showError(context,
+                                message: "You don't have any employees"),
+                          for (var employee in provider.allEmployeesList)
+                            GestureDetector(
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute<void>(
+                                    builder: (BuildContext context) =>
+                                        EmployeeEditPage(employee: employee),
+                                  ),
+                                );
+                              },
+                              child: Container(
+                                margin: const EdgeInsets.only(bottom: 16),
+                                width: double.infinity,
+                                padding: const EdgeInsets.symmetric(
+                                    horizontal: 15, vertical: 16),
+                                decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.circular(9)),
+                                child: Row(
+                                  children: [
+                                    employee.profileImage != null
+                                        ? CommonHelper().profileImage(
+                                            employee.profileImage!.imgUrl!,
+                                            62,
+                                            62)
+                                        : ClipRRect(
+                                            borderRadius:
+                                                BorderRadius.circular(8),
+                                            child: Image.asset(
+                                              'assets/images/avatar.png',
+                                              height: 62,
+                                              width: 62,
+                                              fit: BoxFit.cover,
+                                            ),
+                                          ),
+                                    const SizedBox(width: 8.0),
+                                    Expanded(
+                                      child: Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            CommonHelper().titleCommon(
+                                                employee.userDetails?.name ??
                                                     '',
-                                                isFromNewJobPage: false,
-                                                jobId: provider
-                                                    .jobReqList[i].job.id,
-                                              ),
+                                                fontsize: 15),
+                                            sizedBoxCustom(8),
+                                            Row(
+                                              children: [
+                                                Icon(Icons.email,
+                                                    size: 10,
+                                                    color: cc.greyParagraph),
+                                                const SizedBox(width: 5.0),
+                                                CommonHelper().paragraphCommon(
+                                                    employee.userDetails
+                                                            ?.email ??
+                                                        '',
+                                                    TextAlign.left)
+                                              ],
                                             ),
-                                          );
-                                        });
-                                      },
-                                      child: Text(
-                                          asProvider.getString(menuNames[0])),
-                                    ),
-                                    PopupMenuItem(
-                                      onTap: () {
-                                        Future.delayed(Duration.zero, () {
-                                          //fetch message
-                                          Provider.of<JobConversationService>(
-                                                  context,
-                                                  listen: false)
-                                              .fetchMessages(
-                                                  jobRequestId: provider
-                                                      .jobReqList[i].id);
-
-                                          print(
-                                              'buyer id ${provider.jobReqList[i].buyerId}');
-
-                                          Navigator.push(
-                                            context,
-                                            MaterialPageRoute<void>(
-                                              builder: (BuildContext context) =>
-                                                  JobConversationPage(
-                                                title: provider
-                                                    .jobReqList[i].job.title,
-                                                jobRequestId:
-                                                    provider.jobReqList[i].id,
-                                                buyerId: provider
-                                                    .jobReqList[i].buyerId,
-                                              ),
+                                            sizedBoxCustom(2),
+                                            Row(
+                                              children: [
+                                                Icon(
+                                                  Icons.phone,
+                                                  size: 10,
+                                                  color: cc.greyParagraph,
+                                                ),
+                                                const SizedBox(width: 5.0),
+                                                CommonHelper().paragraphCommon(
+                                                    employee.userDetails
+                                                            ?.phone ??
+                                                        '',
+                                                    TextAlign.left)
+                                              ],
                                             ),
-                                          );
-                                        });
-                                      },
-                                      child: Text(
-                                          asProvider.getString(menuNames[1])),
+                                          ]),
                                     ),
                                   ],
                                 ),
-                              ],
+                              ),
                             ),
-                          ),
-                      ],
-                    ),
-                  )),
+                        ],
+                      ),
+                    )),
+          ),
         ),
-        footer: commonRefreshFooter(context),
       ),
     );
   }

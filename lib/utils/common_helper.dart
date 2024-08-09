@@ -102,15 +102,20 @@ class CommonHelper {
       double fontsize = 14,
       fontweight = FontWeight.w400,
       double lineHeight = 1.4}) {
-    return Text(
-      asProvider.getString(title),
-      textAlign: textAlign,
-      style: TextStyle(
-        color: color ?? cc.greyParagraph,
-        height: lineHeight,
-        fontSize: fontsize,
-        fontWeight: fontweight,
-      ),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          asProvider.getString(title),
+          textAlign: textAlign,
+          style: TextStyle(
+            color: color ?? cc.greyParagraph,
+            height: lineHeight,
+            fontSize: fontsize,
+            fontWeight: fontweight,
+          ),
+        )
+      ],
     );
   }
 

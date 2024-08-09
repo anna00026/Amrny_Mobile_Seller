@@ -52,6 +52,7 @@ dependencies:
   flutter_widget_from_html: ^0.9.1
   flutter_localizations:
     sdk: flutter
+  customizable_datetime_picker: ^0.0.3
 
 dev_dependencies:
   flutter_test:

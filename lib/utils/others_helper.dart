@@ -175,4 +175,4 @@ String userloadingImageUrl =
     'https://i.postimg.cc/ZYQp5Xv1/blank-profile-picture-gb26b7fbdf-1280.png';
 
 String get baseApi => '$siteLink/api/v1';
-String siteLink = 'https://amrny.com';
+String siteLink = 'http://94.232.246.234';

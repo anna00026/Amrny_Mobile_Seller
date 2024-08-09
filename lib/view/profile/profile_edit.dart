@@ -42,7 +42,31 @@ class _ProfileEditPageState extends State<ProfileEditPage> {
   TextEditingController phoneController = TextEditingController();
   TextEditingController aboutController = TextEditingController();
   String? countryCode;
-
+  Map<String, dynamic> profileJson = {};
+  List<String> socialFieldNames = [
+    'fb_url',
+    'tw_url',
+    'go_url',
+    'li_url',
+    'yo_url',
+    'in_url',
+    'dr_url',
+    'twi_url',
+    'pi_url',
+    're_url',
+  ];
+  List<String> socialLabelNames = [
+    'Facebook',
+    'Twitter',
+    'Google',
+    'Linkedin',
+    'Youtube',
+    'Instagram',
+    'Dribble',
+    'Twitch',
+    'Pinterest',
+    'Reddit',
+  ];
   @override
   void initState() {
     super.initState();
@@ -63,7 +87,7 @@ class _ProfileEditPageState extends State<ProfileEditPage> {
     sellerLabelController.text =
         Provider.of<ProfileService>(context, listen: false)
                 .profileDetails
-                .seller_label ??
+                .sellerLabel ??
             '';
     emailController.text = Provider.of<ProfileService>(context, listen: false)
             .profileDetails
@@ -93,10 +117,29 @@ class _ProfileEditPageState extends State<ProfileEditPage> {
         .setStateBasedOnUserProfile(context);
     Provider.of<AreaDropdownService>(context, listen: false)
         .setAreaBasedOnUserProfile(context);
+    profileJson = Provider.of<ProfileService>(context, listen: false)
+        .profileDetails
+        .toJson();
   }
 
   late AnimationController localAnimationController;
   XFile? pickedImage;
+
+  Widget _getSocialInput(int idx, AppStringService ln) {
+    return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+      const SizedBox(
+        height: 8,
+      ),
+      CommonHelper().labelCommon(ln.getString('${socialLabelNames[idx]} Link')),
+      CustomInput(
+        initialValue: profileJson[socialFieldNames[idx]],
+        hintText: ln.getString('https://www.${socialLabelNames[idx].toLowerCase()}.com/'),
+        textInputAction: TextInputAction.next,
+        onChanged: (val) => profileJson[socialFieldNames[idx]] = val,
+      ),
+    ]);
+  }
+
   @override
   Widget build(BuildContext context) {
     ConstantColors cc = ConstantColors();
@@ -359,6 +402,23 @@ class _ProfileEditPageState extends State<ProfileEditPage> {
                         ],
                       ),
 
+                      Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            const SizedBox(
+                              height: 8,
+                            ),
+                            CommonHelper()
+                                .labelCommon(ln.getString("Tax Number")),
+                            CustomInput(
+                              initialValue: profileJson['tax_number'],
+                              hintText: ln.getString("Enter your tax number"),
+                              textInputAction: TextInputAction.next,
+                              onChanged: (val) => profileJson['tax_number'] = val,
+                            ),
+                          ]),
+                      for (int i = 0; i < socialFieldNames.length; i++)
+                        _getSocialInput(i, ln),
                       const SizedBox(
                         height: 25,
                       ),
@@ -408,6 +468,7 @@ class _ProfileEditPageState extends State<ProfileEditPage> {
                             addressController.text,
                             aboutController.text,
                             pickedImage?.path,
+                            profileJson,
                             context,
                           );
                           if (result == true || result == false) {

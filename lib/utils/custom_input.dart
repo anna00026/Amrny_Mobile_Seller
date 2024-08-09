@@ -1,38 +1,44 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import 'constant_colors.dart';
 
 class CustomInput extends StatelessWidget {
   final String hintText;
   final Function(String)? onChanged;
+  final GestureTapCallback? onTap;
   final String? Function(String?)? validation;
   final TextInputAction textInputAction;
   final bool isPasswordField;
   final FocusNode? focusNode;
   final bool isNumberField;
+  final bool isReadOnly;
   final String? icon;
   final String? initialValue;
   final double paddingHorizontal;
   final double marginBottom;
-  TextEditingController? controller;
+  final List<TextInputFormatter>? formatters;
+  final TextEditingController? controller;
   Iterable<String>? autofillHints;
 
   CustomInput(
-      {Key? key,
+      {super.key,
       required this.hintText,
       this.onChanged,
+      this.onTap,
       this.textInputAction = TextInputAction.next,
       this.isPasswordField = false,
       this.focusNode,
       this.isNumberField = false,
+      this.isReadOnly = false,
       this.controller,
       this.validation,
       this.icon,
       this.initialValue,
       this.paddingHorizontal = 8.0,
+      this.formatters,
       this.autofillHints,
-      this.marginBottom = 19})
-      : super(key: key);
+      this.marginBottom = 19});
 
   @override
   Widget build(BuildContext context) {
@@ -48,8 +54,11 @@ class CustomInput extends StatelessWidget {
               isNumberField ? TextInputType.number : TextInputType.text,
           focusNode: focusNode,
           onChanged: onChanged,
-          validator: validation,
+          onTap: onTap,
+          readOnly: isReadOnly,
+          validator: validation,          
           textInputAction: textInputAction,
+          inputFormatters: formatters ?? [],
           obscureText: isPasswordField,
           autofillHints: autofillHints,
           style: const TextStyle(fontSize: 14),

@@ -34,12 +34,12 @@ class ChangePassService with ChangeNotifier {
       var connection = await checkConnection();
       if (connection) {
         setLoadingTrue();
-        if (baseApi.toLowerCase().contains("amrny.com")) {
-          await Future.delayed(const Duration(seconds: 2));
-          "This feature is turned off for demo app".showToast();
-          setLoadingFalse();
-          return false;
-        }
+        // if (baseApi.toLowerCase().contains(siteLink)) {
+        //   await Future.delayed(const Duration(seconds: 2));
+        //   "This feature is turned off for demo app".showToast();
+        //   setLoadingFalse();
+        //   return false;
+        // }
         //internet connection is on
         SharedPreferences prefs = await SharedPreferences.getInstance();
         var token = prefs.getString('token');
