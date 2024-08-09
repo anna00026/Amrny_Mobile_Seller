@@ -288,13 +288,6 @@ class _EmployeeEditPageState extends State<EmployeeEditPage> {
                           CustomInput(
                             onChanged: (val) =>
                                 employee!.userDetails?.name = val,
-                            validation: (value) {
-                              if (value == null || value.isEmpty) {
-                                return ln.getString(
-                                    'Please enter employee\'s full name');
-                              }
-                              return null;
-                            },
                             hintText:
                                 ln.getString("Enter employee's full name"),
                             icon: 'assets/icons/user.png',
@@ -311,13 +304,6 @@ class _EmployeeEditPageState extends State<EmployeeEditPage> {
                           CustomInput(
                             onChanged: (val) =>
                                 employee!.userDetails?.email = val,
-                            validation: (value) {
-                              if (value == null || value.isEmpty) {
-                                return ln.getString(
-                                    'Please enter employee\'s email');
-                              }
-                              return null;
-                            },
                             hintText: ln.getString("Enter employee's email"),
                             icon: 'assets/icons/email-grey.png',
                             textInputAction: TextInputAction.next,
@@ -386,13 +372,6 @@ class _EmployeeEditPageState extends State<EmployeeEditPage> {
                           CustomInput(
                             onChanged: (val) => password = val,
                             isPasswordField: true,
-                            validation: (value) {
-                              if (value == null || value.isEmpty) {
-                                return ln.getString(
-                                    'Please enter employee\'s password');
-                              }
-                              return null;
-                            },
                             hintText: ln.getString("Enter employee's password"),
                             textInputAction: TextInputAction.next,
                           ),
@@ -407,13 +386,6 @@ class _EmployeeEditPageState extends State<EmployeeEditPage> {
                           CustomInput(
                             onChanged: (val) => confirmPassword = val,
                             isPasswordField: true,
-                            validation: (value) {
-                              if (value == null || value.isEmpty) {
-                                return ln.getString(
-                                    'Please enter password to confirm');
-                              }
-                              return null;
-                            },
                             hintText:
                                 ln.getString("Confirm employee's password"),
                             textInputAction: TextInputAction.next,

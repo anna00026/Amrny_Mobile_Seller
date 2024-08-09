@@ -139,7 +139,7 @@ class _HomepageState extends State<Homepage> {
                                 },
                                 child: Container(
                                     padding: const EdgeInsets.only(
-                                        top: 10, right: 40, bottom: 12),
+                                        top: 10, right: 2, bottom: 12),
                                     child: Icon(
                                       Icons.menu,
                                       color: cc.greyFour,
