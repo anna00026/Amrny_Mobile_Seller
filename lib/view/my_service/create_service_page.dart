@@ -24,13 +24,17 @@ class _CreateServicePageState extends State<CreateServicePage> {
   @override
   void initState() {
     super.initState();
-    Provider.of<CreateServicesService>(context, listen: false)
-        .setCreateLodingStatus(false);
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      // Safe to use context here
+      Provider.of<CreateServicesService>(context, listen: false)
+          .setCreateLodingStatus(false);
+    });
   }
 
   ConstantColors cc = ConstantColors();
 
   final titleController = TextEditingController();
+  final titleArController = TextEditingController();
   final videoUrlController = TextEditingController();
   final descController = TextEditingController();
 
@@ -117,6 +121,28 @@ class _CreateServicePageState extends State<CreateServicePage> {
                         textInputAction: TextInputAction.next,
                       ),
 
+                      sizedBoxCustom(20),
+
+                      // Arabic Title
+                      //============>
+                      CommonHelper()
+                          .labelCommon(asProvider.getString("Arabic Title")),
+
+                      CustomInput(
+                        controller: titleArController,
+                        validation: (value) {
+                          if (value == null || value.isEmpty) {
+                            return asProvider
+                                .getString('Please enter a Arabic title');
+                          }
+                          return null;
+                        },
+                        hintText: asProvider.getString("Arabic Title"),
+                        textDirection: TextDirection.rtl,
+                        paddingHorizontal: 15,
+                        textInputAction: TextInputAction.next,
+                      ),
+
                       // Video URL
                       //============>
                       CommonHelper()
@@ -167,6 +193,7 @@ class _CreateServicePageState extends State<CreateServicePage> {
                             description: descController.text,
                             videoUrl: videoUrlController.text,
                             title: titleController.text,
+                            titleAr: titleArController.text,
                             isFromCreateService: true);
                       }, isloading: provider.createServiceLoading),
 

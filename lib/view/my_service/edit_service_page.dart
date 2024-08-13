@@ -47,7 +47,7 @@ class _EditServicePageState extends State<EditServicePage> {
               ? true
               : false;
 
-      imageLink = provider.serviceDetails.serviceImage.imgUrl;
+      imageLink = provider.serviceDetails.serviceImage == null ? '' : provider.serviceDetails.serviceImage.imgUrl;
 
       //set existing cat subcat id
       Provider.of<CatSubcatDropdownServiceForEditService>(context,
@@ -69,6 +69,7 @@ class _EditServicePageState extends State<EditServicePage> {
   ConstantColors cc = ConstantColors();
 
   final titleController = TextEditingController();
+  final titleArController = TextEditingController();
   final videoUrlController = TextEditingController();
   final descController = TextEditingController();
 
@@ -161,6 +162,28 @@ class _EditServicePageState extends State<EditServicePage> {
                                     textInputAction: TextInputAction.next,
                                   ),
 
+                                  sizedBoxCustom(20),
+
+                                  // Title
+                                  //============>
+                                  CommonHelper().labelCommon(
+                                      asProvider.getString("Arabic Title")),
+
+                                  CustomInput(
+                                    controller: titleArController,
+                                    validation: (value) {
+                                      if (value == null || value.isEmpty) {
+                                        return asProvider
+                                            .getString('Please enter an Arabic title');
+                                      }
+                                      return null;
+                                    },
+                                    hintText: asProvider.getString("Arabic Title"),
+                                    paddingHorizontal: 15,
+                                    textDirection: TextDirection.rtl,
+                                    textInputAction: TextInputAction.next,
+                                  ),
+
                                   // Video URL
                                   //============>
                                   CommonHelper().labelCommon(
@@ -218,6 +241,7 @@ class _EditServicePageState extends State<EditServicePage> {
                                       description: descController.text,
                                       videoUrl: videoUrlController.text,
                                       title: titleController.text,
+                                      titleAr: titleArController.text,
                                       serviceId: widget.serviceId,
                                     );
                                   }, isloading: provider.updateServiceLoading),

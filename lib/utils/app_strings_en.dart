@@ -547,6 +547,8 @@ var appStringsEn = {
   "Saving employee data...It may take few seconds": "Saving employee data...It may take few seconds",
   "You don't have any employees": "You don't have any employees",
   "Employees": "Employees",
+  "Please enter a Arabic title": "Please enter a Arabic title",
+  "Arabic Title": "Arabic Title",
   "Language": "Language",
   "English": "English",
   "Arabic": "Arabic",

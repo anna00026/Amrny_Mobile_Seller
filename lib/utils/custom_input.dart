@@ -19,6 +19,7 @@ class CustomInput extends StatelessWidget {
   final double marginBottom;
   final List<TextInputFormatter>? formatters;
   final TextEditingController? controller;
+  final TextDirection? textDirection;
   Iterable<String>? autofillHints;
 
   CustomInput(
@@ -38,6 +39,7 @@ class CustomInput extends StatelessWidget {
       this.paddingHorizontal = 8.0,
       this.formatters,
       this.autofillHints,
+      this.textDirection,
       this.marginBottom = 19});
 
   @override
@@ -58,6 +60,7 @@ class CustomInput extends StatelessWidget {
           readOnly: isReadOnly,
           validator: validation,          
           textInputAction: textInputAction,
+          textDirection: textDirection,
           inputFormatters: formatters ?? [],
           obscureText: isPasswordField,
           autofillHints: autofillHints,
@@ -89,6 +92,7 @@ class CustomInput extends StatelessWidget {
               focusedErrorBorder: OutlineInputBorder(
                   borderSide: BorderSide(color: ConstantColors().primaryColor)),
               hintText: hintText,
+              hintTextDirection: textDirection,
               contentPadding: EdgeInsets.symmetric(
                   horizontal: paddingHorizontal, vertical: 18)),
         ));

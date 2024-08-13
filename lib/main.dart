@@ -26,7 +26,8 @@ void main() async {
       flutterLocalNotificationsPlugin.resolvePlatformSpecificImplementation<
           AndroidFlutterLocalNotificationsPlugin>();
 
-  await androidImplementation?.requestPermission();
+  await androidImplementation?.requestNotificationsPermission();
+  await androidImplementation?.requestExactAlarmsPermission();
 
   runApp(const MyApp());
 }

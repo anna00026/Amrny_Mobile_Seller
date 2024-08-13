@@ -55,6 +55,7 @@ class CreateServicesService with ChangeNotifier {
       required description,
       required videoUrl,
       required title,
+      required titleAr,
       required bool isFromCreateService}) async {
     //check internet connection
     var connection = await checkConnection();
@@ -94,6 +95,7 @@ class CreateServicesService with ChangeNotifier {
         'subcategory_id': subCategoryId,
         'child_category_id': childCategoryId,
         'title': title,
+        'title_ar': titleAr,
         'description': description,
         'image': await MultipartFile.fromFile(pickedImage.path,
             filename: 'image$categoryId$childCategoryId$title.jpg'),
@@ -160,6 +162,7 @@ class CreateServicesService with ChangeNotifier {
       required description,
       required videoUrl,
       required title,
+      required titleAr,
       required serviceId}) async {
     //check internet connection
     var connection = await checkConnection();
@@ -207,6 +210,7 @@ class CreateServicesService with ChangeNotifier {
       'subcategory': subCategoryId,
       'child_category': childCategoryId,
       'title': title,
+      'title_ar': titleAr,
       'description': description,
       'image': pickedImage != null
           ? await MultipartFile.fromFile(pickedImage.path,

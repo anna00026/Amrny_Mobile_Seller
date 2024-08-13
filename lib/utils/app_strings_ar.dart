@@ -512,6 +512,8 @@ var appStringsAr = {
   "Saving employee data...It may take few seconds": "جاري حفظ بيانات الموظف... قد يستغرق الأمر بضع ثوانٍ",
   "You don't have any employees": "لا يوجد لديك أي موظفين",
   "Employees": "الموظفون",
+  "Please enter an Arabic title": "يرجى إدخال عنوان باللغة العربية",
+  "Arabic Title": "العنوان بالعربية",
   "Language": "اللغة",
   "English": "الإنجليزية",
   "Arabic": "العربية",
