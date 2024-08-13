@@ -164,6 +164,7 @@ class ServiceDetails {
     this.sellerId,
     this.serviceCityId,
     this.title,
+    this.titleAr,
     this.slug,
     this.description,
     this.image,
@@ -188,6 +189,7 @@ class ServiceDetails {
   int? sellerId;
   int? serviceCityId;
   String? title;
+  String? titleAr;
   String? slug;
   String? description;
   String? image;
@@ -212,6 +214,7 @@ class ServiceDetails {
         sellerId: json["seller_id"],
         serviceCityId: json["service_city_id"],
         title: json["title"],
+        titleAr: json["title_ar"],
         slug: json["slug"],
         description: json["description"],
         image: json["image"],
@@ -239,6 +242,7 @@ class ServiceDetails {
         "seller_id": sellerId,
         "service_city_id": serviceCityId,
         "title": title,
+        "title_ar": titleAr,
         "slug": slug,
         "description": description,
         "image": image,

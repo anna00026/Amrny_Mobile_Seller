@@ -40,6 +40,7 @@ class _EditServicePageState extends State<EditServicePage> {
       var provider = Provider.of<MyServicesService>(context, listen: false);
 
       titleController.text = provider.serviceDetails.serviceDetails.title;
+      titleArController.text = provider.serviceDetails.serviceDetails.titleAr;
       videoUrlController.text = provider.serviceDetails.videoUrl ?? '';
       descController.text = provider.serviceDetails.serviceDetails.description;
       isAvailableToAllCities =
