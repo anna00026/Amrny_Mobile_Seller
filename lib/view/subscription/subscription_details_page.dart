@@ -63,27 +63,16 @@ class _SubscriptionDetailsPageState extends State<SubscriptionDetailsPage> {
                     child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          CommonHelper().titleCommon(provider.subsData.type +
-                              ' ' +
-                              asProvider.getString('subscription')),
+                          CommonHelper().titleCommon(asProvider.getString('Account Status')),
                           const SizedBox(
                             height: 10,
                           ),
                           //Service row
-
-                          Text(
-                            asProvider.getString("Type") +
-                                ": ${provider.subsData.type}",
-                            style: TextStyle(
-                              color: cc.greyFour,
-                              fontSize: 14,
-                              height: 1.4,
-                            ),
-                          ),
+                          
 
                           sizedBoxCustom(10),
                           Text(
-                            asProvider.getString('Expire date') +
+                            asProvider.getString('Active till') +
                                 ': ' +
                                 formatDate(provider.subsData.expireDate),
                             style: TextStyle(
