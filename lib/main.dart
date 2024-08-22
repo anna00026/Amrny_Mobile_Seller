@@ -65,7 +65,7 @@ class MyApp extends StatelessWidget {
                 ),
               );
             },
-            title: 'Qixer seller',
+            title: 'Amrny-Services',
             debugShowCheckedModeBanner: false,
             theme: ThemeData(
               primarySwatch: Colors.blue,
