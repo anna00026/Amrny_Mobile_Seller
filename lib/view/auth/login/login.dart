@@ -67,10 +67,6 @@ class _LoginPageState extends State<LoginPage> {
             builder: (context, ln, child) => Column(
               children: [
                 ClipRRect(
-                  borderRadius: const BorderRadius.only(
-                    bottomLeft: Radius.circular(30),
-                    bottomRight: Radius.circular(30),
-                  ),
                   child: Container(
                     height: 230.0,
                     width: double.infinity,
