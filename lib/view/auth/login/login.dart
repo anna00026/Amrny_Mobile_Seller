@@ -2,6 +2,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:qixer_seller/services/app_string_service.dart';
+import 'package:qixer_seller/services/language_dropdown_helper.dart';
 import 'package:qixer_seller/utils/common_helper.dart';
 import 'package:qixer_seller/utils/constant_colors.dart';
 import 'package:qixer_seller/utils/constant_styles.dart';
@@ -260,9 +261,16 @@ class _LoginPageState extends State<LoginPage> {
                             ],
                           ),
 
+                          
+                        const SizedBox(
+                          height: 15,
+                        ),
+                        //dropdown for language
+                        LanguageDropdownHelper().languageDropdown(cc, context),
+
                           //Login button ==================>
                           const SizedBox(
-                            height: 13,
+                            height: 18,
                           ),
 
                           Consumer<LoginService>(

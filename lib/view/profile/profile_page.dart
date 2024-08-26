@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:qixer_seller/services/app_string_service.dart';
+import 'package:qixer_seller/services/language_dropdown_helper.dart';
 import 'package:qixer_seller/services/profile_service.dart';
 import 'package:qixer_seller/utils/common_helper.dart';
 import 'package:qixer_seller/utils/constant_colors.dart';
@@ -198,8 +199,11 @@ class _ProfilePageState extends State<ProfilePage> {
                                             ln.getString('Address'),
                                             profileProvider
                                                     .profileDetails.address ??
-                                                '',
-                                            lastBorder: false),
+                                                ''),
+                                        const SizedBox(height: 5),
+                                        //dropdown for language
+                                        LanguageDropdownHelper()
+                                            .languageDropdown(cc, context),
                                       ]),
                                 ),
 
