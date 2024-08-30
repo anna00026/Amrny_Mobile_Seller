@@ -70,56 +70,29 @@ class _ProfileEditPageState extends State<ProfileEditPage> {
   @override
   void initState() {
     super.initState();
-    countryCode = Provider.of<ProfileService>(context, listen: false)
-        .profileDetails
-        .countryCode;
-    //set country code
-    Future.delayed(const Duration(milliseconds: 600), () {
-      Provider.of<ProfileEditService>(context, listen: false)
-          .setCountryCode(countryCode);
-    });
+    ProfileService profileProvider =
+        Provider.of<ProfileService>(context, listen: false);
+    ProfileEditService profileEditProvider =
+        Provider.of<ProfileEditService>(context, listen: false);
+    countryCode = profileProvider.profileDetails.countryCode;
+    profileEditProvider.setCountryCode(countryCode);
 
-    fullNameController.text =
-        Provider.of<ProfileService>(context, listen: false)
-                .profileDetails
-                .name ??
-            '';
+    fullNameController.text = profileProvider.profileDetails.name ?? '';
     sellerLabelController.text =
-        Provider.of<ProfileService>(context, listen: false)
-                .profileDetails
-                .sellerLabel ??
-            '';
-    emailController.text = Provider.of<ProfileService>(context, listen: false)
-            .profileDetails
-            .email ??
-        '';
+        profileProvider.profileDetails.sellerLabel ?? '';
+    emailController.text = profileProvider.profileDetails.email ?? '';
 
-    phoneController.text = Provider.of<ProfileService>(context, listen: false)
-            .profileDetails
-            .phone ??
-        '';
-    postCodeController.text =
-        Provider.of<ProfileService>(context, listen: false)
-                .profileDetails
-                .postCode ??
-            '';
-    addressController.text = Provider.of<ProfileService>(context, listen: false)
-            .profileDetails
-            .address ??
-        '';
-    aboutController.text = Provider.of<ProfileService>(context, listen: false)
-            .profileDetails
-            .about ??
-        '';
+    phoneController.text = profileProvider.profileDetails.phone ?? '';
+    postCodeController.text = profileProvider.profileDetails.postCode ?? '';
+    addressController.text = profileProvider.profileDetails.address ?? '';
+    aboutController.text = profileProvider.profileDetails.about ?? '';
     Provider.of<CountryDropdownService>(context, listen: false)
         .setCountryBasedOnUserProfile(context);
     Provider.of<StateDropdownService>(context, listen: false)
         .setStateBasedOnUserProfile(context);
     Provider.of<AreaDropdownService>(context, listen: false)
         .setAreaBasedOnUserProfile(context);
-    profileJson = Provider.of<ProfileService>(context, listen: false)
-        .profileDetails
-        .toJson();
+    profileJson = profileProvider.profileDetails.toJson();
   }
 
   late AnimationController localAnimationController;
@@ -133,7 +106,8 @@ class _ProfileEditPageState extends State<ProfileEditPage> {
       CommonHelper().labelCommon(ln.getString('${socialLabelNames[idx]} Link')),
       CustomInput(
         initialValue: profileJson[socialFieldNames[idx]],
-        hintText: ln.getString('https://www.${socialLabelNames[idx].toLowerCase()}.com/'),
+        hintText: ln.getString(
+            'https://www.${socialLabelNames[idx].toLowerCase()}.com/'),
         textInputAction: TextInputAction.next,
         onChanged: (val) => profileJson[socialFieldNames[idx]] = val,
       ),
@@ -412,7 +386,8 @@ class _ProfileEditPageState extends State<ProfileEditPage> {
                               initialValue: profileJson['tax_number'],
                               hintText: ln.getString("Enter your tax number"),
                               textInputAction: TextInputAction.next,
-                              onChanged: (val) => profileJson['tax_number'] = val,
+                              onChanged: (val) =>
+                                  profileJson['tax_number'] = val,
                             ),
                           ]),
                       for (int i = 0; i < socialFieldNames.length; i++)
