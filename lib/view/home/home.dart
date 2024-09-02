@@ -86,11 +86,11 @@ class _HomepageState extends State<Homepage> {
         context, data["title"].toString(), data["body"].toString());
   }
 
-  bool isEmployee(BuildContext context) {
+  bool isSeller(BuildContext context) {
     ProfileService profileEditProvider =
         Provider.of<ProfileService>(context, listen: false);
-    return profileEditProvider.profileDetails == null ||
-        profileEditProvider.profileDetails.userType == 2;
+    return profileEditProvider.profileDetails != null &&
+        profileEditProvider.profileDetails.userType == 0;
   }
 
   @override
@@ -206,8 +206,8 @@ class _HomepageState extends State<Homepage> {
                         //==============>
                         const HomeCards(),
 
-                        if (!isEmployee(context)) const SizedBox(height: 20),
-                        if (!isEmployee(context)) const ChartDashboard(),
+                        if (isSeller(context)) const SizedBox(height: 20),
+                        if (isSeller(context)) const ChartDashboard(),
 
                         const SizedBox(
                           height: 20,
