@@ -86,6 +86,13 @@ class _HomepageState extends State<Homepage> {
         context, data["title"].toString(), data["body"].toString());
   }
 
+  bool isEmployee(BuildContext context) {
+    ProfileService profileEditProvider =
+        Provider.of<ProfileService>(context, listen: false);
+    return profileEditProvider.profileDetails == null ||
+        profileEditProvider.profileDetails.userType == 2;
+  }
+
   @override
   Widget build(BuildContext context) {
     //fetch data
@@ -199,10 +206,8 @@ class _HomepageState extends State<Homepage> {
                         //==============>
                         const HomeCards(),
 
-                        const SizedBox(
-                          height: 20,
-                        ),
-                        const ChartDashboard(),
+                        if (!isEmployee(context)) const SizedBox(height: 20),
+                        if (!isEmployee(context)) const ChartDashboard(),
 
                         const SizedBox(
                           height: 20,

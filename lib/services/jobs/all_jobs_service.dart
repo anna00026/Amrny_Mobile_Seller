@@ -65,8 +65,7 @@ class AllJobsService with ChangeNotifier {
 
       print(response.body);
 
-      if (response.statusCode == 201 &&
-          decodedData['employees_list']['data'].isNotEmpty) {
+      if (response.statusCode == 201) {
         var data = AllJobModel.fromJson(decodedData);
 
         setTotalPage(data.allJobs?.lastPage ?? 1);

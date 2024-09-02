@@ -11,9 +11,10 @@ import '../utils/others_helper.dart';
 class ProfileEditService with ChangeNotifier {
   bool isloading = false;
 
-  String countryCode = 'IN';
+  String countryCode = 'SA';
 
   setCountryCode(code) {
+    if(code == null) return;
     countryCode = code;
     notifyListeners();
   }

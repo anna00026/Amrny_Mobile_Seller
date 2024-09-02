@@ -4,10 +4,18 @@ import 'package:flutterzilla_fixed_grid/flutterzilla_fixed_grid.dart';
 import 'package:provider/provider.dart';
 import 'package:qixer_seller/services/app_string_service.dart';
 import 'package:qixer_seller/services/dashboard_service.dart';
+import 'package:qixer_seller/services/profile_service.dart';
 import 'package:qixer_seller/view/home/home_helper.dart';
 
 class HomeCards extends StatelessWidget {
   const HomeCards({Key? key}) : super(key: key);
+
+  bool isEmployee(BuildContext context) {
+    ProfileService profileEditProvider =
+        Provider.of<ProfileService>(context, listen: false);
+    return profileEditProvider.profileDetails != null ||
+        profileEditProvider.profileDetails.userType == 2;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -28,6 +36,9 @@ class HomeCards extends StatelessWidget {
                     shrinkWrap: true,
                     physics: const NeverScrollableScrollPhysics(),
                     itemBuilder: (context, index) {
+                      if (isEmployee(context) && (index == 2 || index == 3)) {
+                        return Container();
+                      }
                       return Container(
                         padding: const EdgeInsets.all(15),
                         decoration: BoxDecoration(

@@ -102,7 +102,7 @@ class _EmployeeEditPageState extends State<EmployeeEditPage> {
             backgroundColor: Colors.white,
             content: CustomizableDatePickerWidget(
                 separatorWidget: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20),
+                  padding: const EdgeInsets.symmetric(horizontal: 5),
                   child: Text(
                     ":",
                     style: TextStyle(
