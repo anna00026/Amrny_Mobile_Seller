@@ -133,7 +133,7 @@ class BillplzPayment extends StatelessWidget {
           "amount": "${double.parse(amount) * 100}",
           "reference_1_label": "Bank Code",
           "reference_1": "BP-FKR01",
-          "callback_url": "http://www.xgenious.com"
+          "callback_url": "http://www.amrny.com"
         }));
     print(response.statusCode);
     if (response.statusCode == 200) {

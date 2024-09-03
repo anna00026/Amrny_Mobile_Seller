@@ -76,7 +76,7 @@ class SquareUpPayment extends StatelessWidget {
                   javascriptMode: JavascriptMode.unrestricted,
                   navigationDelegate: (NavigationRequest request) async {
                     print('navigation delegate link ' + request.url);
-                    if (request.url.contains('http://www.xgenious.com')) {
+                    if (request.url.contains('http://www.amrny.com')) {
                       // String status = await verifyPayment(request.url);
                       // if (status == 'paid') {
                       //   await Provider.of<PlaceOrderService>(context, listen: false)
@@ -171,7 +171,7 @@ class SquareUpPayment extends StatelessWidget {
             "price_money": {"amount": amount, "currency": currencyCode}
           },
           "payment_note": "Amrny payment",
-          "redirect_url": "https://xgenious.com/",
+          "redirect_url": "https://amrny.com/",
           "pre_populated_data": {"buyer_email": email}
         }));
     print(response.body);
