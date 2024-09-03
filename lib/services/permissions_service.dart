@@ -1,9 +1,9 @@
 import 'dart:convert';
 
 import 'package:flutter/widgets.dart';
-import 'package:qixer_seller/services/common_service.dart';
+import 'package:amrny_seller/services/common_service.dart';
 import 'package:http/http.dart' as http;
-import 'package:qixer_seller/utils/others_helper.dart';
+import 'package:amrny_seller/utils/others_helper.dart';
 
 class PermissionsService with ChangeNotifier {
   bool jobPermission = true;

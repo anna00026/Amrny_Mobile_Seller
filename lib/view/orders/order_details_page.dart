@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:qixer_seller/services/app_string_service.dart';
-import 'package:qixer_seller/services/order_details_service.dart';
-import 'package:qixer_seller/services/orders_service.dart';
-import 'package:qixer_seller/utils/common_helper.dart';
-import 'package:qixer_seller/utils/constant_colors.dart';
-import 'package:qixer_seller/utils/constant_styles.dart';
-import 'package:qixer_seller/utils/responsive.dart';
-import 'package:qixer_seller/view/orders/components/amount_details.dart';
-import 'package:qixer_seller/view/orders/components/buyer_details.dart';
-import 'package:qixer_seller/view/orders/components/date_schedule.dart';
-import 'package:qixer_seller/view/orders/components/decline_history.dart';
-import 'package:qixer_seller/view/orders/components/order_extras.dart';
-import 'package:qixer_seller/view/orders/components/order_status.dart';
-import 'package:qixer_seller/view/orders/orders_helper.dart';
+import 'package:amrny_seller/services/app_string_service.dart';
+import 'package:amrny_seller/services/order_details_service.dart';
+import 'package:amrny_seller/services/orders_service.dart';
+import 'package:amrny_seller/utils/common_helper.dart';
+import 'package:amrny_seller/utils/constant_colors.dart';
+import 'package:amrny_seller/utils/constant_styles.dart';
+import 'package:amrny_seller/utils/responsive.dart';
+import 'package:amrny_seller/view/orders/components/amount_details.dart';
+import 'package:amrny_seller/view/orders/components/buyer_details.dart';
+import 'package:amrny_seller/view/orders/components/date_schedule.dart';
+import 'package:amrny_seller/view/orders/components/decline_history.dart';
+import 'package:amrny_seller/view/orders/components/order_extras.dart';
+import 'package:amrny_seller/view/orders/components/order_status.dart';
+import 'package:amrny_seller/view/orders/orders_helper.dart';
 import '../../utils/others_helper.dart';
 
 class OrderDetailsPage extends StatefulWidget {

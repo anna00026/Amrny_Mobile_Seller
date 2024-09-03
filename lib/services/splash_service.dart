@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:qixer_seller/services/auth_services/login_service.dart';
-import 'package:qixer_seller/view/auth/login/login.dart';
+import 'package:amrny_seller/services/auth_services/login_service.dart';
+import 'package:amrny_seller/view/auth/login/login.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class SplashService {

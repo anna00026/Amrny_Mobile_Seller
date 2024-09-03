@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
-import 'package:qixer_seller/services/day_schedule_service/schedule_service.dart';
-import 'package:qixer_seller/utils/constant_colors.dart';
+import 'package:amrny_seller/services/day_schedule_service/schedule_service.dart';
+import 'package:amrny_seller/utils/constant_colors.dart';
 
 import '../../utils/common_helper.dart';
 import '../../utils/others_helper.dart';

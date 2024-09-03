@@ -10,13 +10,13 @@ import 'package:image_picker/image_picker.dart';
 import 'package:provider/provider.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:pusher_channels_flutter/pusher_channels_flutter.dart';
-import 'package:qixer_seller/services/live_chat/chat_message_service.dart';
-import 'package:qixer_seller/services/push_notification_service.dart';
-import 'package:qixer_seller/services/rtl_service.dart';
-import 'package:qixer_seller/utils/constant_colors.dart';
-import 'package:qixer_seller/utils/constant_styles.dart';
-import 'package:qixer_seller/utils/others_helper.dart';
-import 'package:qixer_seller/utils/responsive.dart';
+import 'package:amrny_seller/services/live_chat/chat_message_service.dart';
+import 'package:amrny_seller/services/push_notification_service.dart';
+import 'package:amrny_seller/services/rtl_service.dart';
+import 'package:amrny_seller/utils/constant_colors.dart';
+import 'package:amrny_seller/utils/constant_styles.dart';
+import 'package:amrny_seller/utils/others_helper.dart';
+import 'package:amrny_seller/utils/responsive.dart';
 
 import '../supports/image_big_preview.dart';
 

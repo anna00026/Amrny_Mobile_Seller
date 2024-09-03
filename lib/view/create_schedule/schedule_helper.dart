@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:qixer_seller/services/day_schedule_service/schedule_service.dart';
+import 'package:amrny_seller/services/day_schedule_service/schedule_service.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
 
 import '../../services/app_string_service.dart';

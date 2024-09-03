@@ -2,16 +2,16 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_widget_from_html_core/flutter_widget_from_html_core.dart';
 import 'package:provider/provider.dart';
-import 'package:qixer_seller/services/common_service.dart';
-import 'package:qixer_seller/services/jobs/job_details_service.dart';
-import 'package:qixer_seller/services/rtl_service.dart';
-import 'package:qixer_seller/utils/common_helper.dart';
-import 'package:qixer_seller/utils/constant_colors.dart';
-import 'package:qixer_seller/utils/constant_styles.dart';
-import 'package:qixer_seller/utils/others_helper.dart';
-import 'package:qixer_seller/utils/responsive.dart';
-import 'package:qixer_seller/view/jobs/components/job_helper.dart';
-import 'package:qixer_seller/view/jobs/components/overview_box.dart';
+import 'package:amrny_seller/services/common_service.dart';
+import 'package:amrny_seller/services/jobs/job_details_service.dart';
+import 'package:amrny_seller/services/rtl_service.dart';
+import 'package:amrny_seller/utils/common_helper.dart';
+import 'package:amrny_seller/utils/constant_colors.dart';
+import 'package:amrny_seller/utils/constant_styles.dart';
+import 'package:amrny_seller/utils/others_helper.dart';
+import 'package:amrny_seller/utils/responsive.dart';
+import 'package:amrny_seller/view/jobs/components/job_helper.dart';
+import 'package:amrny_seller/view/jobs/components/overview_box.dart';
 
 class JobDetailsPage extends StatefulWidget {
   const JobDetailsPage({

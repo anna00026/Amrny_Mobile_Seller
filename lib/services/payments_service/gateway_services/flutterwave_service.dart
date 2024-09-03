@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutterwave_standard/flutterwave.dart';
 import 'package:flutterwave_standard/models/subaccount.dart';
 import 'package:provider/provider.dart';
-import 'package:qixer_seller/services/payments_service/payment_gateway_list_service.dart';
-import 'package:qixer_seller/services/payments_service/payment_service.dart';
-import 'package:qixer_seller/services/profile_service.dart';
-import 'package:qixer_seller/services/subscription_service.dart';
-import 'package:qixer_seller/services/wallet_service.dart';
+import 'package:amrny_seller/services/payments_service/payment_gateway_list_service.dart';
+import 'package:amrny_seller/services/payments_service/payment_service.dart';
+import 'package:amrny_seller/services/profile_service.dart';
+import 'package:amrny_seller/services/subscription_service.dart';
+import 'package:amrny_seller/services/wallet_service.dart';
 import 'package:uuid/uuid.dart';
 
 import '../../../utils/others_helper.dart';

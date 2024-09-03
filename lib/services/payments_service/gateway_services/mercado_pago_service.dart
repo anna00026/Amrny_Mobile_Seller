@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:qixer_seller/services/payments_service/payment_service.dart';
-import 'package:qixer_seller/view/payments/mercado_pago_payment_page.dart';
+import 'package:amrny_seller/services/payments_service/payment_service.dart';
+import 'package:amrny_seller/view/payments/mercado_pago_payment_page.dart';
 
 class MercadoPagoService {
   payByMercado(BuildContext context,

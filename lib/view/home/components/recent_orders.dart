@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:qixer_seller/services/app_string_service.dart';
-import 'package:qixer_seller/services/order_details_service.dart';
-import 'package:qixer_seller/services/recent_orders_service.dart';
-import 'package:qixer_seller/services/rtl_service.dart';
-import 'package:qixer_seller/utils/constant_colors.dart';
-import 'package:qixer_seller/utils/others_helper.dart';
-import 'package:qixer_seller/view/home/components/section_title.dart';
-import 'package:qixer_seller/view/orders/all_orders_page.dart';
-import 'package:qixer_seller/view/orders/order_details_page.dart';
+import 'package:amrny_seller/services/app_string_service.dart';
+import 'package:amrny_seller/services/order_details_service.dart';
+import 'package:amrny_seller/services/recent_orders_service.dart';
+import 'package:amrny_seller/services/rtl_service.dart';
+import 'package:amrny_seller/utils/constant_colors.dart';
+import 'package:amrny_seller/utils/others_helper.dart';
+import 'package:amrny_seller/view/home/components/section_title.dart';
+import 'package:amrny_seller/view/orders/all_orders_page.dart';
+import 'package:amrny_seller/view/orders/order_details_page.dart';
 
 class RecentOrders extends StatelessWidget {
   const RecentOrders({Key? key}) : super(key: key);

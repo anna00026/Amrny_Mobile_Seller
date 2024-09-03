@@ -170,8 +170,8 @@ var appStringsEn = {
   "Successfully applied": "Successfully applied",
   "New job request from": "New job request from",
   "New chat message": "New chat message",
-  "Make sure you have added include, additional, benefits, faq":
-      "Make sure you have added include, additional, benefits, faq",
+  "Make sure you have added include":
+      "Make sure you have added include",
   "Service attribute added, Refreshing list....":
       "Service attribute added, Refreshing list....",
   "Attribute deleted": "Attribute deleted",

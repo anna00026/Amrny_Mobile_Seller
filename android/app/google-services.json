@@ -1,15 +1,15 @@
 {
   "project_info": {
     "project_number": "188087765602",
-    "project_id": "qixer-abe9a",
-    "storage_bucket": "qixer-abe9a.appspot.com"
+    "project_id": "amrny-abe9a",
+    "storage_bucket": "amrny-abe9a.appspot.com"
   },
   "client": [
     {
       "client_info": {
         "mobilesdk_app_id": "1:188087765602:android:95c9956adca0a58f0cdf3b",
         "android_client_info": {
-          "package_name": "com.xgenious.qixer_seller"
+          "package_name": "com.seller.amrny"
         }
       },
       "oauth_client": [

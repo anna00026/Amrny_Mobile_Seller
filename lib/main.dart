@@ -3,10 +3,10 @@ import 'package:flutter/services.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:qixer_seller/services/cat_subcat_dropdown_service_for_edit_service.dart';
-import 'package:qixer_seller/services/notifier_providers.dart';
-import 'package:qixer_seller/services/rtl_service.dart';
-import 'package:qixer_seller/view/intro/splash.dart';
+import 'package:amrny_seller/services/cat_subcat_dropdown_service_for_edit_service.dart';
+import 'package:amrny_seller/services/notifier_providers.dart';
+import 'package:amrny_seller/services/rtl_service.dart';
+import 'package:amrny_seller/view/intro/splash.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

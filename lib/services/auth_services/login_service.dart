@@ -6,10 +6,10 @@ import 'package:flutter/material.dart';
 // import 'package:flutter_stripe/flutter_stripe.dart';
 import 'package:http/http.dart' as http;
 import 'package:provider/provider.dart';
-import 'package:qixer_seller/services/day_schedule_service/schedule_service.dart';
-import 'package:qixer_seller/services/push_notification_service.dart';
-import 'package:qixer_seller/services/subscription_service.dart';
-import 'package:qixer_seller/view/home/home.dart';
+import 'package:amrny_seller/services/day_schedule_service/schedule_service.dart';
+import 'package:amrny_seller/services/push_notification_service.dart';
+import 'package:amrny_seller/services/subscription_service.dart';
+import 'package:amrny_seller/view/home/home.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../utils/constant_colors.dart';

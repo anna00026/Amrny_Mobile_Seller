@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:qixer_seller/helper/extension/string_extension.dart';
-import 'package:qixer_seller/services/my_services/attribute_service.dart';
-import 'package:qixer_seller/services/my_services/edit_attribute_service.dart';
-import 'package:qixer_seller/utils/responsive.dart';
-import 'package:qixer_seller/view/my_service/add_attribute_page.dart';
-import 'package:qixer_seller/view/my_service/components/my_service_helper.dart';
-import 'package:qixer_seller/view/my_service/edit_attribute_page.dart';
-import 'package:qixer_seller/view/my_service/edit_service_page.dart';
-import 'package:qixer_seller/view/my_service/show_attribute_page.dart';
+import 'package:amrny_seller/helper/extension/string_extension.dart';
+import 'package:amrny_seller/services/my_services/attribute_service.dart';
+import 'package:amrny_seller/services/my_services/edit_attribute_service.dart';
+import 'package:amrny_seller/utils/responsive.dart';
+import 'package:amrny_seller/view/my_service/add_attribute_page.dart';
+import 'package:amrny_seller/view/my_service/components/my_service_helper.dart';
+import 'package:amrny_seller/view/my_service/edit_attribute_page.dart';
+import 'package:amrny_seller/view/my_service/edit_service_page.dart';
+import 'package:amrny_seller/view/my_service/show_attribute_page.dart';
 
 class MyServicesPopupMenu extends StatelessWidget {
   const MyServicesPopupMenu({

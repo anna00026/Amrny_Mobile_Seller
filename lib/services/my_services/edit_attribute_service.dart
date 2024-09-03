@@ -4,11 +4,11 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:provider/provider.dart';
-import 'package:qixer_seller/helper/extension/string_extension.dart';
-import 'package:qixer_seller/services/common_service.dart';
-import 'package:qixer_seller/services/my_services/attribute_service.dart';
-import 'package:qixer_seller/services/my_services/my_services_service.dart';
-import 'package:qixer_seller/utils/others_helper.dart';
+import 'package:amrny_seller/helper/extension/string_extension.dart';
+import 'package:amrny_seller/services/common_service.dart';
+import 'package:amrny_seller/services/my_services/attribute_service.dart';
+import 'package:amrny_seller/services/my_services/my_services_service.dart';
+import 'package:amrny_seller/utils/others_helper.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class EditAttributeService with ChangeNotifier {

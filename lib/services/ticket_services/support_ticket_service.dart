@@ -4,11 +4,11 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:http/http.dart' as http;
-import 'package:qixer_seller/model/ticket_list_model.dart';
-import 'package:qixer_seller/services/common_service.dart';
-import 'package:qixer_seller/services/ticket_services/support_messages_service.dart';
-import 'package:qixer_seller/utils/others_helper.dart';
-import 'package:qixer_seller/view/supports/ticket_chat_page.dart';
+import 'package:amrny_seller/model/ticket_list_model.dart';
+import 'package:amrny_seller/services/common_service.dart';
+import 'package:amrny_seller/services/ticket_services/support_messages_service.dart';
+import 'package:amrny_seller/utils/others_helper.dart';
+import 'package:amrny_seller/view/supports/ticket_chat_page.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class SupportTicketService with ChangeNotifier {

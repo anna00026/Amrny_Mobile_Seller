@@ -4,13 +4,13 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:provider/provider.dart';
-import 'package:qixer_seller/services/cat_subcat_dropdown_service_for_edit_service.dart';
-import 'package:qixer_seller/services/category_subcat_dropdown_service.dart';
-import 'package:qixer_seller/services/common_service.dart';
-import 'package:qixer_seller/services/my_services/my_services_service.dart';
-import 'package:qixer_seller/utils/others_helper.dart';
-import 'package:qixer_seller/utils/responsive.dart';
-import 'package:qixer_seller/view/my_service/add_attribute_page.dart';
+import 'package:amrny_seller/services/cat_subcat_dropdown_service_for_edit_service.dart';
+import 'package:amrny_seller/services/category_subcat_dropdown_service.dart';
+import 'package:amrny_seller/services/common_service.dart';
+import 'package:amrny_seller/services/my_services/my_services_service.dart';
+import 'package:amrny_seller/utils/others_helper.dart';
+import 'package:amrny_seller/utils/responsive.dart';
+import 'package:amrny_seller/view/my_service/add_attribute_page.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class CreateServicesService with ChangeNotifier {

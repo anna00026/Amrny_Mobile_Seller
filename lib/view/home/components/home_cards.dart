@@ -2,10 +2,10 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterzilla_fixed_grid/flutterzilla_fixed_grid.dart';
 import 'package:provider/provider.dart';
-import 'package:qixer_seller/services/app_string_service.dart';
-import 'package:qixer_seller/services/dashboard_service.dart';
-import 'package:qixer_seller/services/profile_service.dart';
-import 'package:qixer_seller/view/home/home_helper.dart';
+import 'package:amrny_seller/services/app_string_service.dart';
+import 'package:amrny_seller/services/dashboard_service.dart';
+import 'package:amrny_seller/services/profile_service.dart';
+import 'package:amrny_seller/view/home/home_helper.dart';
 
 class HomeCards extends StatelessWidget {
   const HomeCards({Key? key}) : super(key: key);

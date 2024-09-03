@@ -155,7 +155,7 @@ var appStringsAr = {
   "Successfully applied": "تم التقديم بنجاح",
   "New job request from": "طلب وظيفة جديد من",
   "New chat message": "رسالة دردشة جديدة",
-  "Make sure you have added include, additional, benefits, faq": "تأكد من أنك قد أضفت ما يتضمنه، الإضافات، الفوائد، الأسئلة الشائعة",
+  "Make sure you have added include": "تأكد من أنك قمت بإضافة التضمين.",
   "Service attribute added, Refreshing list....": "تمت إضافة سمة الخدمة، جارٍ تحديث القائمة....",
   "Attribute deleted": "تم حذف السمة",
   "You must select a main image": "يجب عليك اختيار صورة رئيسية",

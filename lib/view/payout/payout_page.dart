@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
-import 'package:qixer_seller/services/app_string_service.dart';
-import 'package:qixer_seller/services/common_service.dart';
-import 'package:qixer_seller/services/payout_details_service.dart';
-import 'package:qixer_seller/services/payout_history_service.dart';
-import 'package:qixer_seller/utils/constant_colors.dart';
-import 'package:qixer_seller/utils/constant_styles.dart';
-import 'package:qixer_seller/view/payout/components/payout_page_appbar.dart';
-import 'package:qixer_seller/view/payout/payout_details_page.dart';
+import 'package:amrny_seller/services/app_string_service.dart';
+import 'package:amrny_seller/services/common_service.dart';
+import 'package:amrny_seller/services/payout_details_service.dart';
+import 'package:amrny_seller/services/payout_history_service.dart';
+import 'package:amrny_seller/utils/constant_colors.dart';
+import 'package:amrny_seller/utils/constant_styles.dart';
+import 'package:amrny_seller/view/payout/components/payout_page_appbar.dart';
+import 'package:amrny_seller/view/payout/payout_details_page.dart';
 
 import '../../utils/others_helper.dart';
 

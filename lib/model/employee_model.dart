@@ -1,6 +1,6 @@
 import 'dart:convert';
-import 'package:qixer_seller/model/all_job_model.dart';
-import 'package:qixer_seller/model/profile_model.dart';
+import 'package:amrny_seller/model/all_job_model.dart';
+import 'package:amrny_seller/model/profile_model.dart';
 
 EmployeeModel employeeModelFromJson(String str) =>
     EmployeeModel.fromJson(json.decode(str));

@@ -4,7 +4,7 @@
 
 import 'dart:convert';
 
-import 'package:qixer_seller/helper/extension/string_extension.dart';
+import 'package:amrny_seller/helper/extension/string_extension.dart';
 
 AllOrdersModel allOrdersModelFromJson(String str) =>
     AllOrdersModel.fromJson(json.decode(str));

@@ -4,10 +4,10 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:qixer_seller/services/payments_service/payment_service.dart';
-import 'package:qixer_seller/services/subscription_service.dart';
-import 'package:qixer_seller/services/wallet_service.dart';
-import 'package:qixer_seller/utils/responsive.dart';
+import 'package:amrny_seller/services/payments_service/payment_service.dart';
+import 'package:amrny_seller/services/subscription_service.dart';
+import 'package:amrny_seller/services/wallet_service.dart';
+import 'package:amrny_seller/utils/responsive.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 import 'package:http/http.dart' as http;
 
@@ -165,9 +165,9 @@ class MolliePayment extends StatelessWidget {
         headers: header,
         body: jsonEncode({
           "amount": {"value": amount, "currency": currencyCode},
-          "description": "Qixer payment",
+          "description": "Amrny payment",
           "redirectUrl": successUrl,
-          "webhookUrl": successUrl, "metadata": 'mollieQixer$orderId',
+          "webhookUrl": successUrl, "metadata": 'mollieAmrny$orderId',
           // "method": "creditcard",
         }));
     if (response.statusCode == 201) {

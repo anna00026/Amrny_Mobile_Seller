@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:qixer_seller/utils/common_helper.dart';
-import 'package:qixer_seller/utils/constant_colors.dart';
-import 'package:qixer_seller/utils/responsive.dart';
-import 'package:qixer_seller/view/auth/signup/dropdowns/area_dropdown.dart';
-import 'package:qixer_seller/view/auth/signup/dropdowns/country_dropdown.dart';
-import 'package:qixer_seller/view/auth/signup/dropdowns/state_dropdown.dart';
+import 'package:amrny_seller/utils/common_helper.dart';
+import 'package:amrny_seller/utils/constant_colors.dart';
+import 'package:amrny_seller/utils/responsive.dart';
+import 'package:amrny_seller/view/auth/signup/dropdowns/area_dropdown.dart';
+import 'package:amrny_seller/view/auth/signup/dropdowns/country_dropdown.dart';
+import 'package:amrny_seller/view/auth/signup/dropdowns/state_dropdown.dart';
 
 class CountryStatesDropdowns extends StatefulWidget {
   const CountryStatesDropdowns({Key? key}) : super(key: key);

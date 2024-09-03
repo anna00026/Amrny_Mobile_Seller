@@ -4,12 +4,12 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:qixer_seller/model/area_dropdown_model.dart';
-import 'package:qixer_seller/model/country_dropdown_model.dart';
-import 'package:qixer_seller/model/states_dropdown_model.dart';
-import 'package:qixer_seller/services/profile_service.dart';
-import 'package:qixer_seller/utils/others_helper.dart';
-import 'package:qixer_seller/utils/responsive.dart';
+import 'package:amrny_seller/model/area_dropdown_model.dart';
+import 'package:amrny_seller/model/country_dropdown_model.dart';
+import 'package:amrny_seller/model/states_dropdown_model.dart';
+import 'package:amrny_seller/services/profile_service.dart';
+import 'package:amrny_seller/utils/others_helper.dart';
+import 'package:amrny_seller/utils/responsive.dart';
 
 class CountryStatesService with ChangeNotifier {
   var countryDropdownList = [];

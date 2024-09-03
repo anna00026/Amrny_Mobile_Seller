@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:qixer_seller/services/common_service.dart';
-import 'package:qixer_seller/utils/constant_colors.dart';
-import 'package:qixer_seller/utils/others_helper.dart';
+import 'package:amrny_seller/services/common_service.dart';
+import 'package:amrny_seller/utils/constant_colors.dart';
+import 'package:amrny_seller/utils/others_helper.dart';
 
 import '../../services/splash_service.dart';
 import '../../utils/responsive.dart';

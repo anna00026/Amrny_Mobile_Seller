@@ -5,9 +5,9 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import 'package:http/http.dart' as http;
-import 'package:qixer_seller/services/auth_services/login_service.dart';
-import 'package:qixer_seller/services/auth_services/reset_password_service.dart';
-import 'package:qixer_seller/view/home/home.dart';
+import 'package:amrny_seller/services/auth_services/login_service.dart';
+import 'package:amrny_seller/services/auth_services/reset_password_service.dart';
+import 'package:amrny_seller/view/home/home.dart';
 
 import '../../utils/others_helper.dart';
 import '../day_schedule_service/schedule_service.dart';

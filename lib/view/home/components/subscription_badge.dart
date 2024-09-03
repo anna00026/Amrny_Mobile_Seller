@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:qixer_seller/services/common_service.dart';
-import 'package:qixer_seller/services/rtl_service.dart';
-import 'package:qixer_seller/services/subscription_service.dart';
-import 'package:qixer_seller/utils/constant_styles.dart';
-import 'package:qixer_seller/utils/responsive.dart';
-import 'package:qixer_seller/view/subscription/subscription_details_page.dart';
+import 'package:amrny_seller/services/common_service.dart';
+import 'package:amrny_seller/services/rtl_service.dart';
+import 'package:amrny_seller/services/subscription_service.dart';
+import 'package:amrny_seller/utils/constant_styles.dart';
+import 'package:amrny_seller/utils/responsive.dart';
+import 'package:amrny_seller/view/subscription/subscription_details_page.dart';
 
 class SubscriptionBadge extends StatelessWidget {
   const SubscriptionBadge({

@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:qixer_seller/services/app_string_service.dart';
-import 'package:qixer_seller/services/my_services/create_services_service.dart';
-import 'package:qixer_seller/utils/common_helper.dart';
-import 'package:qixer_seller/utils/constant_colors.dart';
-import 'package:qixer_seller/utils/constant_styles.dart';
-import 'package:qixer_seller/utils/custom_input.dart';
-import 'package:qixer_seller/utils/others_helper.dart';
-import 'package:qixer_seller/view/my_service/components/category_dropdown.dart';
-import 'package:qixer_seller/view/my_service/components/child_category_dropdown.dart';
-import 'package:qixer_seller/view/my_service/components/create_service_image_upload.dart';
-import 'package:qixer_seller/view/my_service/components/sub_category_dropdown.dart';
-import 'package:qixer_seller/view/profile/components/textarea_field.dart';
+import 'package:amrny_seller/services/app_string_service.dart';
+import 'package:amrny_seller/services/my_services/create_services_service.dart';
+import 'package:amrny_seller/utils/common_helper.dart';
+import 'package:amrny_seller/utils/constant_colors.dart';
+import 'package:amrny_seller/utils/constant_styles.dart';
+import 'package:amrny_seller/utils/custom_input.dart';
+import 'package:amrny_seller/utils/others_helper.dart';
+import 'package:amrny_seller/view/my_service/components/category_dropdown.dart';
+import 'package:amrny_seller/view/my_service/components/child_category_dropdown.dart';
+import 'package:amrny_seller/view/my_service/components/create_service_image_upload.dart';
+import 'package:amrny_seller/view/my_service/components/sub_category_dropdown.dart';
+import 'package:amrny_seller/view/profile/components/textarea_field.dart';
 
 class CreateServicePage extends StatefulWidget {
   const CreateServicePage({Key? key}) : super(key: key);

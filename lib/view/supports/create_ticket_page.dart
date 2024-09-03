@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:qixer_seller/utils/responsive.dart';
+import 'package:amrny_seller/utils/responsive.dart';
 import '../../services/ticket_services/create_ticket_service.dart';
 import '../../utils/common_helper.dart';
 import '../../utils/constant_colors.dart';

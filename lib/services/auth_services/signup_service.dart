@@ -2,10 +2,10 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:qixer_seller/services/dropdowns_services/area_dropdown_service.dart';
-import 'package:qixer_seller/services/dropdowns_services/country_dropdown_service.dart';
-import 'package:qixer_seller/services/dropdowns_services/state_dropdown_services.dart';
-import 'package:qixer_seller/utils/others_helper.dart';
+import 'package:amrny_seller/services/dropdowns_services/area_dropdown_service.dart';
+import 'package:amrny_seller/services/dropdowns_services/country_dropdown_service.dart';
+import 'package:amrny_seller/services/dropdowns_services/state_dropdown_services.dart';
+import 'package:amrny_seller/utils/others_helper.dart';
 
 import '../../utils/constant_colors.dart';
 import '../../view/auth/signup/components/email_verify_page.dart';

@@ -5,8 +5,8 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:qixer_seller/services/payments_service/payment_service.dart';
-import 'package:qixer_seller/utils/others_helper.dart';
+import 'package:amrny_seller/services/payments_service/payment_service.dart';
+import 'package:amrny_seller/utils/others_helper.dart';
 
 import 'package:webview_flutter/webview_flutter.dart';
 import 'package:http/http.dart' as http;
@@ -125,7 +125,7 @@ class CinetPayPayment extends StatelessWidget {
           "amount": double.parse(amount).toInt(),
           "currency": "USD",
           "alternative_currency": currencyCode,
-          "description": " Qixer Payment ",
+          "description": " Amrny Payment ",
           "customer_id": "1",
           "customer_name": name + " first name",
           "customer_surname": name + " surname",

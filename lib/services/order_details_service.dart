@@ -5,12 +5,12 @@ import 'package:connectivity_plus/connectivity_plus.dart';
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:qixer_seller/model/order_details_model.dart';
-import 'package:qixer_seller/model/order_extra_model.dart';
-import 'package:qixer_seller/services/orders_service.dart';
-import 'package:qixer_seller/services/push_notification_service.dart';
-import 'package:qixer_seller/utils/others_helper.dart';
-import 'package:qixer_seller/utils/responsive.dart';
+import 'package:amrny_seller/model/order_details_model.dart';
+import 'package:amrny_seller/model/order_extra_model.dart';
+import 'package:amrny_seller/services/orders_service.dart';
+import 'package:amrny_seller/services/push_notification_service.dart';
+import 'package:amrny_seller/utils/others_helper.dart';
+import 'package:amrny_seller/utils/responsive.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:http/http.dart' as http;
 import 'common_service.dart';
@@ -166,6 +166,7 @@ class OrderDetailsService with ChangeNotifier {
     var response = await http.get(
         Uri.parse('$baseApi/user/order/extra-service/list/$orderId'),
         headers: header);
+    setLoadingStatus(false);
 
     final decodedData = jsonDecode(response.body);
 

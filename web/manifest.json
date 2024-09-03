@@ -1,6 +1,6 @@
 {
-    "name": "qixer_customer",
-    "short_name": "qixer_customer",
+    "name": "amrny_customer",
+    "short_name": "amrny_customer",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

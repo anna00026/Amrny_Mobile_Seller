@@ -1,9 +1,9 @@
 // ignore_for_file: prefer_typing_uninitialized_variables
 
 import 'package:flutter/material.dart';
-import 'package:qixer_seller/utils/common_helper.dart';
-import 'package:qixer_seller/utils/constant_styles.dart';
-import 'package:qixer_seller/view/my_service/components/attributes/attribute_helper.dart';
+import 'package:amrny_seller/utils/common_helper.dart';
+import 'package:amrny_seller/utils/constant_styles.dart';
+import 'package:amrny_seller/view/my_service/components/attributes/attribute_helper.dart';
 
 import '../../../../utils/responsive.dart';
 

@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:qixer_seller/services/app_string_service.dart';
-import 'package:qixer_seller/services/my_services/attribute_service.dart';
-import 'package:qixer_seller/utils/common_helper.dart';
-import 'package:qixer_seller/utils/constant_colors.dart';
-import 'package:qixer_seller/utils/constant_styles.dart';
-import 'package:qixer_seller/view/my_service/components/attributes/add_additional.dart';
-import 'package:qixer_seller/view/my_service/components/attributes/add_package_included.dart';
-import 'package:qixer_seller/view/my_service/components/attributes/benefits_of_package.dart';
-import 'package:qixer_seller/view/my_service/components/attributes/faq_for_service_create.dart';
+import 'package:amrny_seller/services/app_string_service.dart';
+import 'package:amrny_seller/services/my_services/attribute_service.dart';
+import 'package:amrny_seller/utils/common_helper.dart';
+import 'package:amrny_seller/utils/constant_colors.dart';
+import 'package:amrny_seller/utils/constant_styles.dart';
+import 'package:amrny_seller/view/my_service/components/attributes/add_additional.dart';
+import 'package:amrny_seller/view/my_service/components/attributes/add_package_included.dart';
+import 'package:amrny_seller/view/my_service/components/attributes/benefits_of_package.dart';
+import 'package:amrny_seller/view/my_service/components/attributes/faq_for_service_create.dart';
 
 class AddAttributePage extends StatefulWidget {
   const AddAttributePage({

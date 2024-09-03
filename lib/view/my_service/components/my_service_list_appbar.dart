@@ -2,9 +2,11 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
-import 'package:qixer_seller/services/app_string_service.dart';
-import 'package:qixer_seller/utils/constant_colors.dart';
-import 'package:qixer_seller/view/my_service/create_service_page.dart';
+import 'package:amrny_seller/services/app_string_service.dart';
+import 'package:amrny_seller/services/profile_service.dart';
+import 'package:amrny_seller/utils/constant_colors.dart';
+import 'package:amrny_seller/view/my_service/create_service_page.dart';
+import 'package:amrny_seller/view/profile/profile_verify_page.dart';
 
 class MyServiceListAppbar extends StatelessWidget {
   const MyServiceListAppbar({Key? key}) : super(key: key);
@@ -43,13 +45,28 @@ class MyServiceListAppbar extends StatelessWidget {
             ),
             child: InkWell(
               onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute<void>(
-                    builder: (BuildContext context) =>
-                        const CreateServicePage(),
-                  ),
-                );
+                ProfileService profileProvider =
+                    Provider.of<ProfileService>(context, listen: false);
+                if (profileProvider.profileDetails.sellerVerify != null &&
+                    profileProvider.profileDetails.sellerVerify.status
+                            .toString() ==
+                        "1") {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute<void>(
+                      builder: (BuildContext context) =>
+                          const CreateServicePage(),
+                    ),
+                  );
+                } else {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute<void>(
+                      builder: (BuildContext context) =>
+                          const ProfileVerifyPage(),
+                    ),
+                  );
+                }
               },
               child: Container(
                   // width: double.infinity,

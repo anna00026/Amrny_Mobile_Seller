@@ -2,14 +2,14 @@ import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
-import 'package:qixer_seller/services/app_string_service.dart';
-import 'package:qixer_seller/services/auth_services/signup_service.dart';
-import 'package:qixer_seller/services/chart_service.dart';
-import 'package:qixer_seller/services/dropdowns_services/country_dropdown_service.dart';
-import 'package:qixer_seller/services/permissions_service.dart';
-import 'package:qixer_seller/services/profile_service.dart';
-import 'package:qixer_seller/services/rtl_service.dart';
-import 'package:qixer_seller/services/subscription_service.dart';
+import 'package:amrny_seller/services/app_string_service.dart';
+import 'package:amrny_seller/services/auth_services/signup_service.dart';
+import 'package:amrny_seller/services/chart_service.dart';
+import 'package:amrny_seller/services/dropdowns_services/country_dropdown_service.dart';
+import 'package:amrny_seller/services/permissions_service.dart';
+import 'package:amrny_seller/services/profile_service.dart';
+import 'package:amrny_seller/services/rtl_service.dart';
+import 'package:amrny_seller/services/subscription_service.dart';
 
 import '../utils/others_helper.dart';
 

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:qixer_seller/view/jobs/apply_job_popup.dart';
+import 'package:amrny_seller/view/jobs/apply_job_popup.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
 
 class JobHelper {
