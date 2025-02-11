@@ -1,9 +1,5 @@
 import 'dart:io';
 
-import 'package:customizable_datetime_picker/sources/i18n/date_picker_i18n.dart';
-import 'package:customizable_datetime_picker/sources/model/date_picker_divider_theme.dart';
-import 'package:customizable_datetime_picker/sources/model/date_picker_theme.dart';
-import 'package:customizable_datetime_picker/sources/widget/customizable_date_picker_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:intl/intl.dart';
@@ -12,11 +8,7 @@ import 'package:provider/provider.dart';
 import 'package:amrny_seller/model/employee_model.dart';
 import 'package:amrny_seller/model/profile_model.dart';
 import 'package:amrny_seller/services/app_string_service.dart';
-import 'package:amrny_seller/services/dropdowns_services/area_dropdown_service.dart';
-import 'package:amrny_seller/services/dropdowns_services/country_dropdown_service.dart';
-import 'package:amrny_seller/services/dropdowns_services/state_dropdown_services.dart';
 import 'package:amrny_seller/services/employees/employees_service.dart';
-import 'package:amrny_seller/services/language_dropdown_helper.dart';
 import 'package:amrny_seller/services/profile_edit_service.dart';
 import 'package:amrny_seller/utils/common_helper.dart';
 import 'package:amrny_seller/utils/constant_colors.dart';
@@ -24,16 +16,13 @@ import 'package:amrny_seller/utils/others_helper.dart';
 import 'package:amrny_seller/view/auth/signup/signup_helper.dart';
 import 'package:amrny_seller/view/employees/components/number_formatter.dart';
 import 'package:amrny_seller/view/profile/components/textarea_field.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:top_snackbar_flutter/custom_snack_bar.dart';
 import 'package:top_snackbar_flutter/top_snack_bar.dart';
 
-import '../../services/profile_service.dart';
 import '../../services/rtl_service.dart';
 import '../../utils/constant_styles.dart';
 import '../../utils/custom_input.dart';
 import '../../utils/responsive.dart';
-import '../auth/signup/components/country_states_dropdowns.dart';
 
 class EmployeeEditPage extends StatefulWidget {
   EmployeeModel? employee;
@@ -58,10 +47,8 @@ class _EmployeeEditPageState extends State<EmployeeEditPage> {
       employee = EmployeeModel();
       employee?.userDetails = UserDetails();
     }
-      _birthDtController.text = getFormattedDateString(
-          employee?.joiningDate,
-          Provider.of<AppStringService>(context, listen: false)
-              .currentLanguage);
+    _birthDtController.text = getFormattedDateString(employee?.joiningDate,
+        Provider.of<AppStringService>(context, listen: false).currentLanguage);
   }
 
   late AnimationController localAnimationController;
@@ -86,80 +73,93 @@ class _EmployeeEditPageState extends State<EmployeeEditPage> {
     }
   }
 
-  void _selectBirthDate(
-      BuildContext context, DateTime? joinDate, String currentLanguage) {
-    DateTime? selectedDate = joinDate ?? DateTime.now();
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return Consumer<AppStringService>(
-          builder: (context, ln, child) => AlertDialog(
-            title: Text(
-              ln.getString('Joining Date'),
-            ),
-            contentPadding: EdgeInsets.zero,
-            insetPadding: EdgeInsets.zero,
-            backgroundColor: Colors.white,
-            content: CustomizableDatePickerWidget(
-                separatorWidget: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 5),
-                  child: Text(
-                    ":",
-                    style: TextStyle(
-                      color: cc.greyThree,
-                      fontSize: 12,
-                      height: 1.3,
-                      fontWeight: FontWeight.w600,
-                    ),
-                  ),
-                ),
-                locale: currentLanguage == 'English'
-                    ? DateTimePickerLocale.enUs
-                    : DateTimePickerLocale.ar,
-                looping: true,
-                lastDate: DateTime.now(),
-                initialDate: selectedDate,
-                dateFormat: "yyyy-MMMM-dd",
-                pickerTheme: DateTimePickerTheme(
-                    itemTextStyle: TextStyle(
-                      color: cc.greyThree,
-                      fontSize: 12,
-                      height: 1.3,
-                      fontWeight: FontWeight.w600,
-                    ),
-                    backgroundColor: Colors.white,
-                    itemHeight: 50,
-                    pickerHeight: 250,
-                    dividerTheme: DatePickerDividerTheme(
-                        dividerColor: cc.primaryColor,
-                        thickness: 4,
-                        height: 4)),
-                onChange: (dateTime, selectedIndex) {
-                  selectedDate = dateTime;
-                }),
-            actions: [
-              TextButton(
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-                child: Text(ln.getString('Cancel')),
-              ),
-              TextButton(
-                onPressed: () {
-                  setState(() {
-                    joinDate = selectedDate;
-                    _birthDtController.text =
-                        getFormattedDateString(joinDate, currentLanguage);
-                  });
-                  Navigator.pop(context);
-                },
-                child: Text(ln.getString('OK')),
-              ),
-            ],
-          ),
-        );
-      },
-    );
+  Future<void> _selectBirthDate(
+      BuildContext context, DateTime? joinDate, String currentLanguage) async {
+    final DateTime? picked = await showDatePicker(
+        context: context,
+        initialDate: joinDate,
+        firstDate: DateTime(1900, 8),
+        lastDate: DateTime(2101),
+        locale: Locale(rtlProvider.langSlug.substring(0, 2)));
+    if (picked != null && picked != joinDate) {
+      setState(() {
+        joinDate = picked;
+        _birthDtController.text =
+            getFormattedDateString(joinDate, currentLanguage);
+      });
+    }
+    // DateTime? selectedDate = joinDate ?? DateTime.now();
+    // showDialog(
+    //   context: context,
+    //   builder: (BuildContext context) {
+    //     return Consumer<AppStringService>(
+    //       builder: (context, ln, child) => AlertDialog(
+    //         title: Text(
+    //           ln.getString('Joining Date'),
+    //         ),
+    //         contentPadding: EdgeInsets.zero,
+    //         insetPadding: EdgeInsets.zero,
+    //         backgroundColor: Colors.white,
+    //         content: CustomizableDatePickerWidget(
+    //             separatorWidget: Padding(
+    //               padding: const EdgeInsets.symmetric(horizontal: 5),
+    //               child: Text(
+    //                 ":",
+    //                 style: TextStyle(
+    //                   color: cc.greyThree,
+    //                   fontSize: 12,
+    //                   height: 1.3,
+    //                   fontWeight: FontWeight.w600,
+    //                 ),
+    //               ),
+    //             ),
+    //             locale: currentLanguage == 'English'
+    //                 ? DateTimePickerLocale.enUs
+    //                 : DateTimePickerLocale.ar,
+    //             looping: true,
+    //             lastDate: DateTime.now(),
+    //             initialDate: selectedDate,
+    //             dateFormat: "yyyy-MMMM-dd",
+    //             pickerTheme: DateTimePickerTheme(
+    //                 itemTextStyle: TextStyle(
+    //                   color: cc.greyThree,
+    //                   fontSize: 12,
+    //                   height: 1.3,
+    //                   fontWeight: FontWeight.w600,
+    //                 ),
+    //                 backgroundColor: Colors.white,
+    //                 itemHeight: 50,
+    //                 pickerHeight: 250,
+    //                 dividerTheme: DatePickerDividerTheme(
+    //                     dividerColor: cc.primaryColor,
+    //                     thickness: 4,
+    //                     height: 4)),
+    //             onChange: (dateTime, selectedIndex) {
+    //               selectedDate = dateTime;
+    //             }),
+    //         actions: [
+    //           TextButton(
+    //             onPressed: () {
+    //               Navigator.pop(context);
+    //             },
+    //             child: Text(ln.getString('Cancel')),
+    //           ),
+    //           TextButton(
+    //             onPressed: () {
+    //               setState(() {
+    //                 joinDate = selectedDate;
+    //                 _birthDtController.text =
+    //                     getFormattedDateString(joinDate, currentLanguage);
+    //               });
+    //               Navigator.pop(context);
+    //             },
+    //             child: Text(ln.getString('OK')),
+    //           ),
+    //         ],
+    //       ),
+    //     );
+    //   },
+    // );
   }
 
   @override

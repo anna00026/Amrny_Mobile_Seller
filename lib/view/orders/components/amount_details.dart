@@ -11,6 +11,9 @@ import 'package:amrny_seller/view/orders/payment_helper.dart';
 class AmountDetails extends StatelessWidget {
   const AmountDetails({Key? key}) : super(key: key);
 
+  double parseCurrencyValue(String val) {
+    return double.tryParse(val.replaceAll("SR", "")) ?? 0;
+  }
   @override
   Widget build(BuildContext context) {
     return Consumer<AppStringService>(
@@ -48,6 +51,16 @@ class AmountDetails extends StatelessWidget {
                     Container(
                       child: PaymentHelper().bRow(
                           'null',
+                          asProvider.getString(
+                              provider.orderDetails.couponCode == 'subscription'
+                                  ? 'Discount'
+                                  : 'Coupon'),
+                          provider.orderDetails.couponAmount.toString()),
+                    ),
+
+                    Container(
+                      child: PaymentHelper().bRow(
+                          'null',
                           ln.getString('Subtotal'),
                           provider.orderDetails.subTotal.toString()),
                     ),
@@ -60,6 +73,20 @@ class AmountDetails extends StatelessWidget {
                     Container(
                       child: PaymentHelper().bRow('null', ln.getString('Total'),
                           provider.orderDetails.total.toString()),
+                    ),
+
+                    Container(
+                      child: PaymentHelper().bRow(
+                          'null',
+                          ln.getString('Admin Charge'),
+                          provider.orderDetails.commissionAmount.toString()),
+                    ),
+
+                    Container(
+                      child: PaymentHelper().bRow(
+                          'null',
+                          ln.getString('Freelancer'),
+                          provider.orderDetails.freelancer.toString()),
                     ),
 
                     Container(

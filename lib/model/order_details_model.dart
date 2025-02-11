@@ -62,6 +62,7 @@ class OrderInfo {
     this.cancelOrderMoneyReturn,
     this.transactionId,
     this.orderNote,
+    this.freelancer,
     this.createdAt,
     this.updatedAt,
     this.manualPaymentImage,
@@ -90,10 +91,11 @@ class OrderInfo {
   String? total;
   String? couponCode;
   String? couponType;
-  var couponAmount;
+  String? couponAmount;
   String? commissionType;
+  String? freelancer;
   var commissionCharge;
-  var commissionAmount;
+  String? commissionAmount;
   String? paymentGateway;
   String? paymentStatus;
   int? status;
@@ -126,6 +128,7 @@ class OrderInfo {
         packageFee: json["package_fee"],
         extraService: json["extra_service"],
         subTotal: json["sub_total"],
+        freelancer: json["freelancer"],
         tax: json["tax"],
         total: json["total"],
         couponCode: json["coupon_code"],
@@ -167,6 +170,7 @@ class OrderInfo {
         "package_fee": packageFee,
         "extra_service": extraService,
         "sub_total": subTotal,
+        "freelancer": freelancer,
         "tax": tax,
         "total": total,
         "coupon_code": couponCode,
