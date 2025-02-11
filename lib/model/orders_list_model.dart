@@ -4,6 +4,8 @@
 
 import 'dart:convert';
 
+import 'package:amrny_seller/helper/extension/string_extension.dart';
+
 AllOrdersModel allOrdersModelFromJson(String str) =>
     AllOrdersModel.fromJson(json.decode(str));
 
@@ -154,7 +156,7 @@ class Datum {
   double? total;
   String? couponCode;
   String? couponType;
-  int? couponAmount;
+  double? couponAmount;
   String? commissionType;
   int? commissionCharge;
   var commissionAmount;
@@ -192,7 +194,7 @@ class Datum {
         total: json?["total"].toDouble(),
         couponCode: json?["coupon_code"],
         couponType: json?["coupon_type"],
-        couponAmount: json?["coupon_amount"],
+        couponAmount: (num.tryParse(json?["coupon_amount"].toString() ?? '0') ?? 0).toDouble(),
         commissionType: json?["commission_type"],
         commissionCharge: json?["commission_charge"],
         commissionAmount: json?["commission_amount"]?.toDouble(),

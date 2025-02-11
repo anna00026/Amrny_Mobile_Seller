@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:qixer_seller/services/profile_service.dart';
-import 'package:qixer_seller/services/subscription_service.dart';
-import 'package:qixer_seller/services/wallet_service.dart';
-import 'package:qixer_seller/view/payments/instamojo_payment_page.dart';
+import 'package:amrny_seller/services/profile_service.dart';
+import 'package:amrny_seller/services/subscription_service.dart';
+import 'package:amrny_seller/services/wallet_service.dart';
+import 'package:amrny_seller/view/payments/instamojo_payment_page.dart';
 
 class InstamojoService {
   payByInstamojo(BuildContext context,

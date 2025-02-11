@@ -2,9 +2,9 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'package:qixer_seller/helper/extension/string_extension.dart';
-import 'package:qixer_seller/services/common_service.dart';
-import 'package:qixer_seller/utils/constant_colors.dart';
+import 'package:amrny_seller/helper/extension/string_extension.dart';
+import 'package:amrny_seller/services/common_service.dart';
+import 'package:amrny_seller/utils/constant_colors.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../utils/others_helper.dart';
@@ -34,12 +34,12 @@ class ChangePassService with ChangeNotifier {
       var connection = await checkConnection();
       if (connection) {
         setLoadingTrue();
-        if (baseApi.toLowerCase().contains("qixer.bytesed.com")) {
-          await Future.delayed(const Duration(seconds: 2));
-          "This feature is turned off for demo app".showToast();
-          setLoadingFalse();
-          return false;
-        }
+        // if (baseApi.toLowerCase().contains(siteLink)) {
+        //   await Future.delayed(const Duration(seconds: 2));
+        //   "This feature is turned off for demo app".showToast();
+        //   setLoadingFalse();
+        //   return false;
+        // }
         //internet connection is on
         SharedPreferences prefs = await SharedPreferences.getInstance();
         var token = prefs.getString('token');
@@ -52,7 +52,7 @@ class ChangePassService with ChangeNotifier {
         var data = {'current_password': currentPass, 'new_password': newPass};
 
         setLoadingTrue();
-        if (baseApi == 'https://bytesed.com/laravel/qixer/api/v1') {
+        if (baseApi == 'https://bytesed.com/laravel/amrny/api/v1') {
           await Future.delayed(const Duration(seconds: 1));
           OthersHelper().showToast(
               'This feature is turned off in test mode', Colors.black);

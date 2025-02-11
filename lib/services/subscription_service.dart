@@ -2,13 +2,13 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:qixer_seller/model/subscription_history_model.dart';
-import 'package:qixer_seller/model/subscription_info_model.dart';
-import 'package:qixer_seller/services/common_service.dart';
-import 'package:qixer_seller/services/payments_service/payment_service.dart';
-import 'package:qixer_seller/services/wallet_service.dart';
-import 'package:qixer_seller/utils/others_helper.dart';
-import 'package:qixer_seller/view/subscription/components/reniew_subscription_success_page.dart';
+import 'package:amrny_seller/model/subscription_history_model.dart';
+import 'package:amrny_seller/model/subscription_info_model.dart';
+import 'package:amrny_seller/services/common_service.dart';
+import 'package:amrny_seller/services/payments_service/payment_service.dart';
+import 'package:amrny_seller/services/wallet_service.dart';
+import 'package:amrny_seller/utils/others_helper.dart';
+import 'package:amrny_seller/view/subscription/components/reniew_subscription_success_page.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:http/http.dart' as http;
 

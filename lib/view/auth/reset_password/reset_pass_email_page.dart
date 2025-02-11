@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:qixer_seller/services/app_string_service.dart';
-import 'package:qixer_seller/services/auth_services/reset_password_service.dart';
-import 'package:qixer_seller/utils/common_helper.dart';
-import 'package:qixer_seller/utils/constant_colors.dart';
-import 'package:qixer_seller/utils/custom_input.dart';
+import 'package:amrny_seller/services/app_string_service.dart';
+import 'package:amrny_seller/services/auth_services/reset_password_service.dart';
+import 'package:amrny_seller/utils/common_helper.dart';
+import 'package:amrny_seller/utils/constant_colors.dart';
+import 'package:amrny_seller/utils/custom_input.dart';
 
 class ResetPassEmailPage extends StatefulWidget {
   const ResetPassEmailPage({Key? key}) : super(key: key);

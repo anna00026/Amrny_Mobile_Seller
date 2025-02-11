@@ -3,22 +3,22 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'package:pusher_beams/pusher_beams.dart';
-import 'package:qixer_seller/services/app_string_service.dart';
-import 'package:qixer_seller/services/common_service.dart';
-import 'package:qixer_seller/services/dashboard_service.dart';
-import 'package:qixer_seller/services/push_notification_service.dart';
-import 'package:qixer_seller/services/recent_orders_service.dart';
-import 'package:qixer_seller/utils/constant_colors.dart';
-import 'package:qixer_seller/utils/constant_styles.dart';
-import 'package:qixer_seller/utils/others_helper.dart';
-import 'package:qixer_seller/utils/responsive.dart';
-import 'package:qixer_seller/view/home/chart_dashboard.dart';
-import 'package:qixer_seller/view/home/components/home_cards.dart';
-import 'package:qixer_seller/view/home/components/recent_orders.dart';
-import 'package:qixer_seller/view/home/components/sidebar_drawer.dart';
-import 'package:qixer_seller/view/home/components/subscription_badge.dart';
-import 'package:qixer_seller/view/notification/push_notification_helper.dart';
-import 'package:qixer_seller/view/profile/profile_page.dart';
+import 'package:amrny_seller/services/app_string_service.dart';
+import 'package:amrny_seller/services/common_service.dart';
+import 'package:amrny_seller/services/dashboard_service.dart';
+import 'package:amrny_seller/services/push_notification_service.dart';
+import 'package:amrny_seller/services/recent_orders_service.dart';
+import 'package:amrny_seller/utils/constant_colors.dart';
+import 'package:amrny_seller/utils/constant_styles.dart';
+import 'package:amrny_seller/utils/others_helper.dart';
+import 'package:amrny_seller/utils/responsive.dart';
+import 'package:amrny_seller/view/home/chart_dashboard.dart';
+import 'package:amrny_seller/view/home/components/home_cards.dart';
+import 'package:amrny_seller/view/home/components/recent_orders.dart';
+import 'package:amrny_seller/view/home/components/sidebar_drawer.dart';
+import 'package:amrny_seller/view/home/components/subscription_badge.dart';
+import 'package:amrny_seller/view/notification/push_notification_helper.dart';
+import 'package:amrny_seller/view/profile/profile_page.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../services/profile_service.dart';
@@ -86,6 +86,13 @@ class _HomepageState extends State<Homepage> {
         context, data["title"].toString(), data["body"].toString());
   }
 
+  bool isSeller(BuildContext context) {
+    ProfileService profileEditProvider =
+        Provider.of<ProfileService>(context, listen: false);
+    return profileEditProvider.profileDetails != null &&
+        profileEditProvider.profileDetails.userType == 0;
+  }
+
   @override
   Widget build(BuildContext context) {
     //fetch data
@@ -139,7 +146,7 @@ class _HomepageState extends State<Homepage> {
                                 },
                                 child: Container(
                                     padding: const EdgeInsets.only(
-                                        top: 10, right: 40, bottom: 12),
+                                        top: 10, right: 2, bottom: 12),
                                     child: Icon(
                                       Icons.menu,
                                       color: cc.greyFour,
@@ -199,10 +206,8 @@ class _HomepageState extends State<Homepage> {
                         //==============>
                         const HomeCards(),
 
-                        const SizedBox(
-                          height: 20,
-                        ),
-                        const ChartDashboard(),
+                        if (isSeller(context)) const SizedBox(height: 20),
+                        if (isSeller(context)) const ChartDashboard(),
 
                         const SizedBox(
                           height: 20,

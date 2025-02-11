@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:qixer_seller/services/dropdowns_services/state_dropdown_services.dart';
-import 'package:qixer_seller/view/auth/signup/dropdowns/country_states_dropdowns.dart';
-import 'package:qixer_seller/view/auth/signup/dropdowns/state_dropdown_popup.dart';
+import 'package:amrny_seller/services/dropdowns_services/state_dropdown_services.dart';
+import 'package:amrny_seller/view/auth/signup/dropdowns/country_states_dropdowns.dart';
+import 'package:amrny_seller/view/auth/signup/dropdowns/state_dropdown_popup.dart';
 
 class StateDropdown extends StatelessWidget {
   const StateDropdown({Key? key}) : super(key: key);

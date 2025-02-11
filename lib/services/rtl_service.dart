@@ -5,7 +5,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:provider/provider.dart';
-import 'package:qixer_seller/utils/others_helper.dart';
+import 'package:amrny_seller/utils/others_helper.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'app_string_service.dart';
@@ -90,5 +90,11 @@ class RtlService with ChangeNotifier {
     } else {
       //already loaded from server. no need to load again
     }
+  }
+  
+  changeDirection(String direction, String locale) {
+    this.direction = direction;
+    langSlug = locale;
+    notifyListeners();
   }
 }

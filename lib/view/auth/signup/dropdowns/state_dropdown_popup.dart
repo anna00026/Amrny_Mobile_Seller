@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
-import 'package:qixer_seller/services/dropdowns_services/state_dropdown_services.dart';
-import 'package:qixer_seller/utils/common_helper.dart';
-import 'package:qixer_seller/utils/constant_colors.dart';
-import 'package:qixer_seller/utils/constant_styles.dart';
-import 'package:qixer_seller/utils/custom_input.dart';
-import 'package:qixer_seller/utils/others_helper.dart';
-import 'package:qixer_seller/utils/responsive.dart';
+import 'package:amrny_seller/services/dropdowns_services/state_dropdown_services.dart';
+import 'package:amrny_seller/utils/common_helper.dart';
+import 'package:amrny_seller/utils/constant_colors.dart';
+import 'package:amrny_seller/utils/constant_styles.dart';
+import 'package:amrny_seller/utils/custom_input.dart';
+import 'package:amrny_seller/utils/others_helper.dart';
+import 'package:amrny_seller/utils/responsive.dart';
 
 import '../../../../services/dropdowns_services/area_dropdown_service.dart';
 

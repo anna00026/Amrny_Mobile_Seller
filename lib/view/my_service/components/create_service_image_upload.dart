@@ -2,9 +2,9 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:qixer_seller/services/app_string_service.dart';
-import 'package:qixer_seller/services/my_services/create_services_service.dart';
-import 'package:qixer_seller/utils/common_helper.dart';
+import 'package:amrny_seller/services/app_string_service.dart';
+import 'package:amrny_seller/services/my_services/create_services_service.dart';
+import 'package:amrny_seller/utils/common_helper.dart';
 
 class CreateServiceImageUpload extends StatelessWidget {
   const CreateServiceImageUpload(

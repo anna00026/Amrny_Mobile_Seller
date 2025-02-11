@@ -3,8 +3,8 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:provider/provider.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
-import 'package:qixer_seller/utils/constant_colors.dart';
-import 'package:qixer_seller/utils/responsive.dart';
+import 'package:amrny_seller/utils/constant_colors.dart';
+import 'package:amrny_seller/utils/responsive.dart';
 
 import '../services/app_string_service.dart';
 import '../services/payments_service/payment_service.dart';
@@ -175,4 +175,4 @@ String userloadingImageUrl =
     'https://i.postimg.cc/ZYQp5Xv1/blank-profile-picture-gb26b7fbdf-1280.png';
 
 String get baseApi => '$siteLink/api/v1';
-String siteLink = 'https://qixer.bytesed.com';
+String siteLink = 'https://amrny.com';

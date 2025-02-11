@@ -6,10 +6,10 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 
 import 'package:provider/provider.dart';
-import 'package:qixer_seller/services/payments_service/payment_service.dart';
-import 'package:qixer_seller/services/subscription_service.dart';
-import 'package:qixer_seller/services/wallet_service.dart';
-import 'package:qixer_seller/utils/others_helper.dart';
+import 'package:amrny_seller/services/payments_service/payment_service.dart';
+import 'package:amrny_seller/services/subscription_service.dart';
+import 'package:amrny_seller/services/wallet_service.dart';
+import 'package:amrny_seller/utils/others_helper.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 import 'package:http/http.dart' as http;
 
@@ -126,14 +126,14 @@ class BillplzPayment extends StatelessWidget {
         headers: header,
         body: jsonEncode({
           "collection_id": collectionName,
-          "description": "Qixer payment",
+          "description": "Amrny payment",
           "email": email,
           "name": name,
           "currency": currencyCode,
           "amount": "${double.parse(amount) * 100}",
           "reference_1_label": "Bank Code",
           "reference_1": "BP-FKR01",
-          "callback_url": "http://www.xgenious.com"
+          "callback_url": "http://www.amrny.com"
         }));
     print(response.statusCode);
     if (response.statusCode == 200) {

@@ -2,9 +2,9 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'package:qixer_seller/model/all_job_model.dart';
-import 'package:qixer_seller/services/common_service.dart';
-import 'package:qixer_seller/utils/others_helper.dart';
+import 'package:amrny_seller/model/all_job_model.dart';
+import 'package:amrny_seller/services/common_service.dart';
+import 'package:amrny_seller/utils/others_helper.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class AllJobsService with ChangeNotifier {
@@ -65,8 +65,7 @@ class AllJobsService with ChangeNotifier {
 
       print(response.body);
 
-      if (response.statusCode == 201 &&
-          decodedData['all_jobs']['data'].isNotEmpty) {
+      if (response.statusCode == 201) {
         var data = AllJobModel.fromJson(decodedData);
 
         setTotalPage(data.allJobs?.lastPage ?? 1);

@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
-import 'package:qixer_seller/services/app_string_service.dart';
-import 'package:qixer_seller/services/order_details_service.dart';
-import 'package:qixer_seller/services/orders_service.dart';
-import 'package:qixer_seller/utils/common_helper.dart';
-import 'package:qixer_seller/utils/constant_colors.dart';
-import 'package:qixer_seller/utils/constant_styles.dart';
-import 'package:qixer_seller/view/orders/components/add_extras_popup.dart';
-import 'package:qixer_seller/view/report/write_report_page.dart';
+import 'package:amrny_seller/services/app_string_service.dart';
+import 'package:amrny_seller/services/order_details_service.dart';
+import 'package:amrny_seller/services/orders_service.dart';
+import 'package:amrny_seller/utils/common_helper.dart';
+import 'package:amrny_seller/utils/constant_colors.dart';
+import 'package:amrny_seller/utils/constant_styles.dart';
+import 'package:amrny_seller/view/orders/components/add_extras_popup.dart';
+import 'package:amrny_seller/view/report/write_report_page.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
 
 class OrdersHelper {

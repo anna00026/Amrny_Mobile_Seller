@@ -86,7 +86,7 @@ class PaypalPaymentState extends State<PaypalPayment> {
   }
 
   // item name, price and quantity
-  String itemName = 'Qixer payment';
+  String itemName = 'Amrny payment';
 
   int quantity = 1;
 

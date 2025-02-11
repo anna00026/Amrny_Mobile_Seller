@@ -8,12 +8,12 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:provider/provider.dart';
 import 'package:http/http.dart' as http;
-import 'package:qixer_seller/model/chat_messages_model.dart';
-import 'package:qixer_seller/services/common_service.dart';
-import 'package:qixer_seller/services/profile_service.dart';
-import 'package:qixer_seller/services/push_notification_service.dart';
-import 'package:qixer_seller/utils/others_helper.dart';
-import 'package:qixer_seller/utils/responsive.dart';
+import 'package:amrny_seller/model/chat_messages_model.dart';
+import 'package:amrny_seller/services/common_service.dart';
+import 'package:amrny_seller/services/profile_service.dart';
+import 'package:amrny_seller/services/push_notification_service.dart';
+import 'package:amrny_seller/utils/others_helper.dart';
+import 'package:amrny_seller/utils/responsive.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class ChatMessagesService with ChangeNotifier {

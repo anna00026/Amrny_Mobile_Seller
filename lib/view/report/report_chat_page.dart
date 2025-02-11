@@ -4,13 +4,13 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:provider/provider.dart';
-import 'package:qixer_seller/services/common_service.dart';
-import 'package:qixer_seller/services/report_services/report_message_service.dart';
-import 'package:qixer_seller/services/rtl_service.dart';
-import 'package:qixer_seller/utils/constant_colors.dart';
-import 'package:qixer_seller/utils/constant_styles.dart';
-import 'package:qixer_seller/utils/others_helper.dart';
-import 'package:qixer_seller/view/supports/image_big_preview.dart';
+import 'package:amrny_seller/services/common_service.dart';
+import 'package:amrny_seller/services/report_services/report_message_service.dart';
+import 'package:amrny_seller/services/rtl_service.dart';
+import 'package:amrny_seller/utils/constant_colors.dart';
+import 'package:amrny_seller/utils/constant_styles.dart';
+import 'package:amrny_seller/utils/others_helper.dart';
+import 'package:amrny_seller/view/supports/image_big_preview.dart';
 
 class ReportChatPage extends StatefulWidget {
   const ReportChatPage({Key? key, required this.title, required this.ticketId})

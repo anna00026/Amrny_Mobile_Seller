@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:qixer_seller/services/app_string_service.dart';
-import 'package:qixer_seller/services/cat_subcat_dropdown_service_for_edit_service.dart';
-import 'package:qixer_seller/services/my_services/create_services_service.dart';
-import 'package:qixer_seller/services/my_services/my_services_service.dart';
-import 'package:qixer_seller/utils/common_helper.dart';
-import 'package:qixer_seller/utils/constant_colors.dart';
-import 'package:qixer_seller/utils/constant_styles.dart';
-import 'package:qixer_seller/utils/custom_input.dart';
-import 'package:qixer_seller/utils/others_helper.dart';
-import 'package:qixer_seller/view/my_service/components/create_service_image_upload.dart';
-import 'package:qixer_seller/view/my_service/components/edit_service/category_dropdown_for_edit_service.dart';
-import 'package:qixer_seller/view/my_service/components/edit_service/child_category_dropdown_for_edit_service.dart';
-import 'package:qixer_seller/view/my_service/components/edit_service/sub_category_dropdown_for_edit_service.dart';
-import 'package:qixer_seller/view/profile/components/textarea_field.dart';
+import 'package:amrny_seller/services/app_string_service.dart';
+import 'package:amrny_seller/services/cat_subcat_dropdown_service_for_edit_service.dart';
+import 'package:amrny_seller/services/my_services/create_services_service.dart';
+import 'package:amrny_seller/services/my_services/my_services_service.dart';
+import 'package:amrny_seller/utils/common_helper.dart';
+import 'package:amrny_seller/utils/constant_colors.dart';
+import 'package:amrny_seller/utils/constant_styles.dart';
+import 'package:amrny_seller/utils/custom_input.dart';
+import 'package:amrny_seller/utils/others_helper.dart';
+import 'package:amrny_seller/view/my_service/components/create_service_image_upload.dart';
+import 'package:amrny_seller/view/my_service/components/edit_service/category_dropdown_for_edit_service.dart';
+import 'package:amrny_seller/view/my_service/components/edit_service/child_category_dropdown_for_edit_service.dart';
+import 'package:amrny_seller/view/my_service/components/edit_service/sub_category_dropdown_for_edit_service.dart';
+import 'package:amrny_seller/view/profile/components/textarea_field.dart';
 
 class EditServicePage extends StatefulWidget {
   const EditServicePage({Key? key, required this.serviceId}) : super(key: key);
@@ -40,6 +40,7 @@ class _EditServicePageState extends State<EditServicePage> {
       var provider = Provider.of<MyServicesService>(context, listen: false);
 
       titleController.text = provider.serviceDetails.serviceDetails.title;
+      titleArController.text = provider.serviceDetails.serviceDetails.titleAr;
       videoUrlController.text = provider.serviceDetails.videoUrl ?? '';
       descController.text = provider.serviceDetails.serviceDetails.description;
       isAvailableToAllCities =
@@ -47,7 +48,7 @@ class _EditServicePageState extends State<EditServicePage> {
               ? true
               : false;
 
-      imageLink = provider.serviceDetails.serviceImage.imgUrl;
+      imageLink = provider.serviceDetails.serviceImage == null ? '' : provider.serviceDetails.serviceImage.imgUrl;
 
       //set existing cat subcat id
       Provider.of<CatSubcatDropdownServiceForEditService>(context,
@@ -69,6 +70,7 @@ class _EditServicePageState extends State<EditServicePage> {
   ConstantColors cc = ConstantColors();
 
   final titleController = TextEditingController();
+  final titleArController = TextEditingController();
   final videoUrlController = TextEditingController();
   final descController = TextEditingController();
 
@@ -161,6 +163,28 @@ class _EditServicePageState extends State<EditServicePage> {
                                     textInputAction: TextInputAction.next,
                                   ),
 
+                                  sizedBoxCustom(20),
+
+                                  // Title
+                                  //============>
+                                  CommonHelper().labelCommon(
+                                      asProvider.getString("Arabic Title")),
+
+                                  CustomInput(
+                                    controller: titleArController,
+                                    validation: (value) {
+                                      if (value == null || value.isEmpty) {
+                                        return asProvider
+                                            .getString('Please enter an Arabic title');
+                                      }
+                                      return null;
+                                    },
+                                    hintText: asProvider.getString("Arabic Title"),
+                                    paddingHorizontal: 15,
+                                    textDirection: TextDirection.rtl,
+                                    textInputAction: TextInputAction.next,
+                                  ),
+
                                   // Video URL
                                   //============>
                                   CommonHelper().labelCommon(
@@ -218,6 +242,7 @@ class _EditServicePageState extends State<EditServicePage> {
                                       description: descController.text,
                                       videoUrl: videoUrlController.text,
                                       title: titleController.text,
+                                      titleAr: titleArController.text,
                                       serviceId: widget.serviceId,
                                     );
                                   }, isloading: provider.updateServiceLoading),

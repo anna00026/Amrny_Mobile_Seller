@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:qixer_seller/services/app_string_service.dart';
-import 'package:qixer_seller/services/my_services/edit_attribute_service.dart';
-import 'package:qixer_seller/utils/common_helper.dart';
-import 'package:qixer_seller/utils/constant_colors.dart';
-import 'package:qixer_seller/utils/constant_styles.dart';
-import 'package:qixer_seller/utils/custom_input.dart';
-import 'package:qixer_seller/utils/others_helper.dart';
-import 'package:qixer_seller/utils/responsive.dart';
+import 'package:amrny_seller/services/app_string_service.dart';
+import 'package:amrny_seller/services/my_services/edit_attribute_service.dart';
+import 'package:amrny_seller/utils/common_helper.dart';
+import 'package:amrny_seller/utils/constant_colors.dart';
+import 'package:amrny_seller/utils/constant_styles.dart';
+import 'package:amrny_seller/utils/custom_input.dart';
+import 'package:amrny_seller/utils/others_helper.dart';
+import 'package:amrny_seller/utils/responsive.dart';
 
 class EditBenefitsOfPackage extends StatefulWidget {
   const EditBenefitsOfPackage({Key? key}) : super(key: key);

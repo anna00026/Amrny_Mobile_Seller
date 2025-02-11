@@ -2,11 +2,11 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
-import 'package:qixer_seller/services/app_string_service.dart';
+import 'package:amrny_seller/services/app_string_service.dart';
 
-import 'package:qixer_seller/utils/constant_colors.dart';
-import 'package:qixer_seller/utils/others_helper.dart';
-import 'package:qixer_seller/utils/responsive.dart';
+import 'package:amrny_seller/utils/constant_colors.dart';
+import 'package:amrny_seller/utils/others_helper.dart';
+import 'package:amrny_seller/utils/responsive.dart';
 
 class CommonHelper {
   ConstantColors cc = ConstantColors();
@@ -102,15 +102,20 @@ class CommonHelper {
       double fontsize = 14,
       fontweight = FontWeight.w400,
       double lineHeight = 1.4}) {
-    return Text(
-      asProvider.getString(title),
-      textAlign: textAlign,
-      style: TextStyle(
-        color: color ?? cc.greyParagraph,
-        height: lineHeight,
-        fontSize: fontsize,
-        fontWeight: fontweight,
-      ),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          asProvider.getString(title),
+          textAlign: textAlign,
+          style: TextStyle(
+            color: color ?? cc.greyParagraph,
+            height: lineHeight,
+            fontSize: fontsize,
+            fontWeight: fontweight,
+          ),
+        )
+      ],
     );
   }
 

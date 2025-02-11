@@ -4,13 +4,13 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:provider/provider.dart';
-import 'package:qixer_seller/services/cat_subcat_dropdown_service_for_edit_service.dart';
-import 'package:qixer_seller/services/category_subcat_dropdown_service.dart';
-import 'package:qixer_seller/services/common_service.dart';
-import 'package:qixer_seller/services/my_services/my_services_service.dart';
-import 'package:qixer_seller/utils/others_helper.dart';
-import 'package:qixer_seller/utils/responsive.dart';
-import 'package:qixer_seller/view/my_service/add_attribute_page.dart';
+import 'package:amrny_seller/services/cat_subcat_dropdown_service_for_edit_service.dart';
+import 'package:amrny_seller/services/category_subcat_dropdown_service.dart';
+import 'package:amrny_seller/services/common_service.dart';
+import 'package:amrny_seller/services/my_services/my_services_service.dart';
+import 'package:amrny_seller/utils/others_helper.dart';
+import 'package:amrny_seller/utils/responsive.dart';
+import 'package:amrny_seller/view/my_service/add_attribute_page.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class CreateServicesService with ChangeNotifier {
@@ -55,6 +55,7 @@ class CreateServicesService with ChangeNotifier {
       required description,
       required videoUrl,
       required title,
+      required titleAr,
       required bool isFromCreateService}) async {
     //check internet connection
     var connection = await checkConnection();
@@ -94,6 +95,7 @@ class CreateServicesService with ChangeNotifier {
         'subcategory_id': subCategoryId,
         'child_category_id': childCategoryId,
         'title': title,
+        'title_ar': titleAr,
         'description': description,
         'image': await MultipartFile.fromFile(pickedImage.path,
             filename: 'image$categoryId$childCategoryId$title.jpg'),
@@ -160,6 +162,7 @@ class CreateServicesService with ChangeNotifier {
       required description,
       required videoUrl,
       required title,
+      required titleAr,
       required serviceId}) async {
     //check internet connection
     var connection = await checkConnection();
@@ -207,6 +210,7 @@ class CreateServicesService with ChangeNotifier {
       'subcategory': subCategoryId,
       'child_category': childCategoryId,
       'title': title,
+      'title_ar': titleAr,
       'description': description,
       'image': pickedImage != null
           ? await MultipartFile.fromFile(pickedImage.path,

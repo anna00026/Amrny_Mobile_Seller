@@ -2,8 +2,8 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:provider/provider.dart';
-import 'package:qixer_seller/helper/extension/string_extension.dart';
-import 'package:qixer_seller/services/profile_service.dart';
+import 'package:amrny_seller/helper/extension/string_extension.dart';
+import 'package:amrny_seller/services/profile_service.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../utils/others_helper.dart';
@@ -11,9 +11,10 @@ import '../utils/others_helper.dart';
 class ProfileEditService with ChangeNotifier {
   bool isloading = false;
 
-  String countryCode = 'IN';
+  String countryCode = 'SA';
 
   setCountryCode(code) {
+    if(code == null) return;
     countryCode = code;
     notifyListeners();
   }
@@ -40,15 +41,27 @@ class ProfileEditService with ChangeNotifier {
     }
   }
 
-  updateProfile(name, email, phone, cityId, areaId, countryId, postCode,
-      address, about, String? imagePath, context) async {
+  updateProfile(
+      name,
+      sellerLabel,
+      email,
+      phone,
+      cityId,
+      areaId,
+      countryId,
+      postCode,
+      address,
+      about,
+      String? imagePath,
+      Map<String, dynamic> other,
+      context) async {
     setLoadingTrue();
-    if (baseApi.toLowerCase().contains("qixer.bytesed.com")) {
-      await Future.delayed(const Duration(seconds: 2));
-      "This feature is turned off for demo app".showToast();
-      setLoadingFalse();
-      return false;
-    }
+    // if (baseApi.toLowerCase().contains(siteLink)) {
+    //   await Future.delayed(const Duration(seconds: 2));
+    //   "This feature is turned off for demo app".showToast();
+    //   setLoadingFalse();
+    //   return false;
+    // }
 
     SharedPreferences prefs = await SharedPreferences.getInstance();
     var token = prefs.getString('token');
@@ -73,7 +86,19 @@ class ProfileEditService with ChangeNotifier {
           'post_code': postCode,
           'address': address,
           'about': about,
-          'country_code': countryCode
+          'country_code': countryCode,
+          'seller_label': sellerLabel,
+          'tax_number': other['tax_number'],
+          'fb_url': other['fb_url'],
+          'tw_url': other['tw_url'],
+          'go_url': other['go_url'],
+          'li_url': other['li_url'],
+          'yo_url': other['yo_url'],
+          'in_url': other['in_url'],
+          'dr_url': other['dr_url'],
+          'twi_url': other['twi_url'],
+          'pi_url': other['pi_url'],
+          're_url': other['re_url'],
         });
       } else {
         formData = FormData.fromMap({
@@ -86,7 +111,19 @@ class ProfileEditService with ChangeNotifier {
           'post_code': postCode,
           'address': address,
           'about': about,
-          'country_code': countryCode
+          'country_code': countryCode,
+          'seller_label': sellerLabel,
+          'tax_number': other['tax_number'],
+          'fb_url': other['fb_url'],
+          'tw_url': other['tw_url'],
+          'go_url': other['go_url'],
+          'li_url': other['li_url'],
+          'yo_url': other['yo_url'],
+          'in_url': other['in_url'],
+          'dr_url': other['dr_url'],
+          'twi_url': other['twi_url'],
+          'pi_url': other['pi_url'],
+          're_url': other['re_url'],
         });
       }
       var response = await dio.post(
@@ -132,7 +169,7 @@ class ProfileEditService with ChangeNotifier {
   //   var request = http.MultipartRequest(
   //     'POST',
   //     Uri.parse(
-  //         "https://nazmul.xgenious.com/qixer_with_api/api/v1/user/update-profile"),
+  //         "https://nazmul.amrny.com/amrny_with_api/api/v1/user/update-profile"),
   //   );
   //   Map<String, String> headers = {
   //     "Accept": "application/json",

@@ -1,36 +1,26 @@
 {
   "project_info": {
-    "project_number": "188087765602",
-    "project_id": "qixer-abe9a",
-    "storage_bucket": "qixer-abe9a.appspot.com"
+    "project_number": "453222816371",
+    "project_id": "amrny-1ce2b",
+    "storage_bucket": "amrny-1ce2b.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:188087765602:android:95c9956adca0a58f0cdf3b",
+        "mobilesdk_app_id": "1:453222816371:android:d56b655e0424a9a8f6e806",
         "android_client_info": {
-          "package_name": "com.xgenious.qixer_seller"
+          "package_name": "com.seller.amrny"
         }
       },
-      "oauth_client": [
-        {
-          "client_id": "188087765602-nls9l5ksue0390ol85cspvj0jon38op5.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
+      "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyCkPOHkdLQhdeiUAOfOiYKejJ9xGcuGYU0"
+          "current_key": "AIzaSyCnIfn53aAdXLhVet3U1nKF1m6pgIVgFuQ"
         }
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "188087765602-nls9l5ksue0390ol85cspvj0jon38op5.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
+          "other_platform_oauth_client": []
         }
       }
     }

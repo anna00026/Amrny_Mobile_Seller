@@ -2,7 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:qixer_seller/services/rtl_service.dart';
+import 'package:amrny_seller/services/rtl_service.dart';
 
 import '../services/app_string_service.dart';
 

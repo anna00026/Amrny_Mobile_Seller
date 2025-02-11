@@ -6,12 +6,12 @@ import 'dart:async';
 import 'dart:convert' as convert;
 import 'package:http_auth/http_auth.dart';
 import 'package:provider/provider.dart';
-import 'package:qixer_seller/services/payments_service/payment_gateway_list_service.dart';
-import 'package:qixer_seller/services/payments_service/payment_service.dart';
-import 'package:qixer_seller/services/profile_service.dart';
-import 'package:qixer_seller/services/subscription_service.dart';
-import 'package:qixer_seller/services/wallet_service.dart';
-import 'package:qixer_seller/view/payments/PaypalPayment.dart';
+import 'package:amrny_seller/services/payments_service/payment_gateway_list_service.dart';
+import 'package:amrny_seller/services/payments_service/payment_service.dart';
+import 'package:amrny_seller/services/profile_service.dart';
+import 'package:amrny_seller/services/subscription_service.dart';
+import 'package:amrny_seller/services/wallet_service.dart';
+import 'package:amrny_seller/view/payments/PaypalPayment.dart';
 
 class PaypalService {
   payByPaypal(BuildContext context,

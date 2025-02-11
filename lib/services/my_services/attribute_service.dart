@@ -3,11 +3,11 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:provider/provider.dart';
-import 'package:qixer_seller/helper/extension/string_extension.dart';
-import 'package:qixer_seller/model/attributes_model.dart';
-import 'package:qixer_seller/services/common_service.dart';
-import 'package:qixer_seller/services/my_services/my_services_service.dart';
-import 'package:qixer_seller/utils/others_helper.dart';
+import 'package:amrny_seller/helper/extension/string_extension.dart';
+import 'package:amrny_seller/model/attributes_model.dart';
+import 'package:amrny_seller/services/common_service.dart';
+import 'package:amrny_seller/services/my_services/my_services_service.dart';
+import 'package:amrny_seller/utils/others_helper.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:http/http.dart' as http;
 
@@ -175,11 +175,9 @@ class AttributeService with ChangeNotifier {
 
     // if (addAttrLoading) return;
 
-    if (includedList.isEmpty ||
-        additionalList.isEmpty ||
-        benefitsList.isEmpty) {
+    if (includedList.isEmpty ) {
       OthersHelper().showToast(
-          'Make sure you have added include, additional, benefits, faq',
+          'Make sure you have added include',
           Colors.black);
       return;
     }

@@ -53,7 +53,7 @@ class DeleteAccountService with ChangeNotifier {
       };
 
       setLoadingTrue();
-      if (baseApi == 'https://bytesed.com/laravel/qixer/api/v1') {
+      if (baseApi == 'https://bytesed.com/laravel/amrny/api/v1') {
         await Future.delayed(const Duration(seconds: 1));
         OthersHelper()
             .showToast('This feature is turned off in test mode', Colors.black);

@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:qixer_seller/services/app_string_service.dart';
-import 'package:qixer_seller/services/my_services/create_services_service.dart';
-import 'package:qixer_seller/utils/common_helper.dart';
-import 'package:qixer_seller/utils/constant_colors.dart';
-import 'package:qixer_seller/utils/constant_styles.dart';
-import 'package:qixer_seller/utils/custom_input.dart';
-import 'package:qixer_seller/utils/others_helper.dart';
-import 'package:qixer_seller/view/my_service/components/category_dropdown.dart';
-import 'package:qixer_seller/view/my_service/components/child_category_dropdown.dart';
-import 'package:qixer_seller/view/my_service/components/create_service_image_upload.dart';
-import 'package:qixer_seller/view/my_service/components/sub_category_dropdown.dart';
-import 'package:qixer_seller/view/profile/components/textarea_field.dart';
+import 'package:amrny_seller/services/app_string_service.dart';
+import 'package:amrny_seller/services/my_services/create_services_service.dart';
+import 'package:amrny_seller/utils/common_helper.dart';
+import 'package:amrny_seller/utils/constant_colors.dart';
+import 'package:amrny_seller/utils/constant_styles.dart';
+import 'package:amrny_seller/utils/custom_input.dart';
+import 'package:amrny_seller/utils/others_helper.dart';
+import 'package:amrny_seller/view/my_service/components/category_dropdown.dart';
+import 'package:amrny_seller/view/my_service/components/child_category_dropdown.dart';
+import 'package:amrny_seller/view/my_service/components/create_service_image_upload.dart';
+import 'package:amrny_seller/view/my_service/components/sub_category_dropdown.dart';
+import 'package:amrny_seller/view/profile/components/textarea_field.dart';
 
 class CreateServicePage extends StatefulWidget {
   const CreateServicePage({Key? key}) : super(key: key);
@@ -24,13 +24,17 @@ class _CreateServicePageState extends State<CreateServicePage> {
   @override
   void initState() {
     super.initState();
-    Provider.of<CreateServicesService>(context, listen: false)
-        .setCreateLodingStatus(false);
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      // Safe to use context here
+      Provider.of<CreateServicesService>(context, listen: false)
+          .setCreateLodingStatus(false);
+    });
   }
 
   ConstantColors cc = ConstantColors();
 
   final titleController = TextEditingController();
+  final titleArController = TextEditingController();
   final videoUrlController = TextEditingController();
   final descController = TextEditingController();
 
@@ -117,6 +121,28 @@ class _CreateServicePageState extends State<CreateServicePage> {
                         textInputAction: TextInputAction.next,
                       ),
 
+                      sizedBoxCustom(20),
+
+                      // Arabic Title
+                      //============>
+                      CommonHelper()
+                          .labelCommon(asProvider.getString("Arabic Title")),
+
+                      CustomInput(
+                        controller: titleArController,
+                        validation: (value) {
+                          if (value == null || value.isEmpty) {
+                            return asProvider
+                                .getString('Please enter a Arabic title');
+                          }
+                          return null;
+                        },
+                        hintText: asProvider.getString("Arabic Title"),
+                        textDirection: TextDirection.rtl,
+                        paddingHorizontal: 15,
+                        textInputAction: TextInputAction.next,
+                      ),
+
                       // Video URL
                       //============>
                       CommonHelper()
@@ -167,6 +193,7 @@ class _CreateServicePageState extends State<CreateServicePage> {
                             description: descController.text,
                             videoUrl: videoUrlController.text,
                             title: titleController.text,
+                            titleAr: titleArController.text,
                             isFromCreateService: true);
                       }, isloading: provider.createServiceLoading),
 

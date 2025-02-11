@@ -1,4 +1,4 @@
-name: qixer_seller
+name: amrny_seller
 description: "A new Flutter project."
 publish_to: 'none'
 version: 1.0.0+10
@@ -47,11 +47,12 @@ dependencies:
   url_launcher: ^6.1.6
   webview_flutter: ^3.0.4
   flutter_launcher_icons: ^0.11.0
-  flutter_local_notifications: ^12.0.0
+  flutter_local_notifications: ^17.2.2
   connectivity_plus: ^5.0.2
   flutter_widget_from_html: ^0.9.1
   flutter_localizations:
     sdk: flutter
+  customizable_datetime_picker: ^0.0.3
 
 dev_dependencies:
   flutter_test:

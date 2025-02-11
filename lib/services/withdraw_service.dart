@@ -2,12 +2,12 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:qixer_seller/services/common_service.dart';
-import 'package:qixer_seller/services/dashboard_service.dart';
-import 'package:qixer_seller/services/payout_history_service.dart';
-import 'package:qixer_seller/utils/others_helper.dart';
+import 'package:amrny_seller/services/common_service.dart';
+import 'package:amrny_seller/services/dashboard_service.dart';
+import 'package:amrny_seller/services/payout_history_service.dart';
+import 'package:amrny_seller/utils/others_helper.dart';
 import 'package:http/http.dart' as http;
-import 'package:qixer_seller/utils/responsive.dart';
+import 'package:amrny_seller/utils/responsive.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class WithdrawService with ChangeNotifier {

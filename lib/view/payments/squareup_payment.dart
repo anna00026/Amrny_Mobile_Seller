@@ -5,8 +5,8 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:qixer_seller/services/payments_service/payment_service.dart';
-import 'package:qixer_seller/utils/others_helper.dart';
+import 'package:amrny_seller/services/payments_service/payment_service.dart';
+import 'package:amrny_seller/utils/others_helper.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 import 'package:http/http.dart' as http;
 
@@ -76,7 +76,7 @@ class SquareUpPayment extends StatelessWidget {
                   javascriptMode: JavascriptMode.unrestricted,
                   navigationDelegate: (NavigationRequest request) async {
                     print('navigation delegate link ' + request.url);
-                    if (request.url.contains('http://www.xgenious.com')) {
+                    if (request.url.contains('http://www.amrny.com')) {
                       // String status = await verifyPayment(request.url);
                       // if (status == 'paid') {
                       //   await Provider.of<PlaceOrderService>(context, listen: false)
@@ -163,15 +163,15 @@ class SquareUpPayment extends StatelessWidget {
     final response = await http.post(url,
         headers: header,
         body: jsonEncode({
-          "description": "Qixer payment",
+          "description": "Amrny payment",
           "idempotency_key": DateTime.now().toString(),
           "quick_pay": {
             "location_id": locationId,
-            "name": "Qixer payment",
+            "name": "Amrny payment",
             "price_money": {"amount": amount, "currency": currencyCode}
           },
-          "payment_note": "Qixer payment",
-          "redirect_url": "https://xgenious.com/",
+          "payment_note": "Amrny payment",
+          "redirect_url": "https://amrny.com/",
           "pre_populated_data": {"buyer_email": email}
         }));
     print(response.body);

@@ -2,10 +2,10 @@
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:qixer_seller/services/payments_service/payment_service.dart';
-import 'package:qixer_seller/services/subscription_service.dart';
-import 'package:qixer_seller/services/wallet_service.dart';
-import 'package:qixer_seller/view/orders/payment_helper.dart';
+import 'package:amrny_seller/services/payments_service/payment_service.dart';
+import 'package:amrny_seller/services/subscription_service.dart';
+import 'package:amrny_seller/services/wallet_service.dart';
+import 'package:amrny_seller/view/orders/payment_helper.dart';
 import 'package:razorpay_flutter/razorpay_flutter.dart';
 import '../../services/payments_service/payment_gateway_list_service.dart';
 import '../../services/rtl_service.dart';

@@ -7,6 +7,7 @@ import Foundation
 
 import audio_session
 import connectivity_plus
+import customizable_datetime_picker
 import file_selector_macos
 import firebase_core
 import flutter_local_notifications
@@ -22,6 +23,7 @@ import wakelock_plus
 func RegisterGeneratedPlugins(registry: FlutterPluginRegistry) {
   AudioSessionPlugin.register(with: registry.registrar(forPlugin: "AudioSessionPlugin"))
   ConnectivityPlugin.register(with: registry.registrar(forPlugin: "ConnectivityPlugin"))
+  CustomizableDatetimePickerPlugin.register(with: registry.registrar(forPlugin: "CustomizableDatetimePickerPlugin"))
   FileSelectorPlugin.register(with: registry.registrar(forPlugin: "FileSelectorPlugin"))
   FLTFirebaseCorePlugin.register(with: registry.registrar(forPlugin: "FLTFirebaseCorePlugin"))
   FlutterLocalNotificationsPlugin.register(with: registry.registrar(forPlugin: "FlutterLocalNotificationsPlugin"))

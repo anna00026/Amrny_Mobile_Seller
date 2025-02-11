@@ -3,10 +3,10 @@
 import 'package:flutter/material.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:provider/provider.dart';
-import 'package:qixer_seller/services/app_string_service.dart';
-import 'package:qixer_seller/services/auth_services/signup_service.dart';
-import 'package:qixer_seller/utils/constant_colors.dart';
-import 'package:qixer_seller/view/auth/signup/signup_helper.dart';
+import 'package:amrny_seller/services/app_string_service.dart';
+import 'package:amrny_seller/services/auth_services/signup_service.dart';
+import 'package:amrny_seller/utils/constant_colors.dart';
+import 'package:amrny_seller/view/auth/signup/signup_helper.dart';
 
 import '../../../../services/rtl_service.dart';
 import '../../../../utils/common_helper.dart';

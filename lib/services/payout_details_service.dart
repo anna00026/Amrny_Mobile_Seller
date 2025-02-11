@@ -3,8 +3,8 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:qixer_seller/model/payout_details_model.dart';
-import 'package:qixer_seller/utils/others_helper.dart';
+import 'package:amrny_seller/model/payout_details_model.dart';
+import 'package:amrny_seller/utils/others_helper.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:http/http.dart' as http;
 import 'common_service.dart';

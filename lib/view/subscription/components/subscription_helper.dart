@@ -1,4 +1,4 @@
-import 'package:qixer_seller/utils/constant_colors.dart';
+import 'package:amrny_seller/utils/constant_colors.dart';
 
 class SubscriptionHelper {
   final cc = ConstantColors();

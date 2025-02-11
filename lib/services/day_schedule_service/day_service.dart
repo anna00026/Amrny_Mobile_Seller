@@ -3,9 +3,9 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:qixer_seller/model/day_list_model.dart';
-import 'package:qixer_seller/services/day_schedule_service/schedule_service.dart';
-import 'package:qixer_seller/utils/constant_colors.dart';
+import 'package:amrny_seller/model/day_list_model.dart';
+import 'package:amrny_seller/services/day_schedule_service/schedule_service.dart';
+import 'package:amrny_seller/utils/constant_colors.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:http/http.dart' as http;
 

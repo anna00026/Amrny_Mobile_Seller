@@ -73,10 +73,23 @@ class UserDetails {
       this.postCode,
       this.image,
       this.countryCode,
-      required this.country,
-      required this.city,
-      required this.area,
-      required this.sellerVerify});
+      this.sellerLabel,
+      this.country,
+      this.userType,
+      this.city,
+      this.area,
+      this.sellerVerify,
+      this.taxNumber,
+      this.fbUrl,
+      this.twUrl,
+      this.goUrl,
+      this.liUrl,
+      this.yoUrl,
+      this.inUrl,
+      this.drUrl,
+      this.twiUrl,
+      this.piUrl,
+      this.reUrl});
 
   int? id;
   String? name;
@@ -89,11 +102,26 @@ class UserDetails {
   String? serviceArea;
   String? postCode;
   String? image;
+  String? sellerLabel;
   dynamic countryCode;
   Country? country;
   City? city;
   Area? area;
   SellerVerify? sellerVerify;
+
+  String? taxNumber;
+
+  String? fbUrl;
+  String? twUrl;
+  String? goUrl;
+  String? liUrl;
+  String? yoUrl;
+  String? inUrl;
+  String? drUrl;
+  String? twiUrl;
+  String? piUrl;
+  String? reUrl;
+  int? userType;
 
   factory UserDetails.fromJson(Map<String, dynamic> json) => UserDetails(
         id: json["id"],
@@ -108,11 +136,24 @@ class UserDetails {
         postCode: json["post_code"],
         image: json["image"],
         countryCode: json["country_code"],
+        sellerLabel: json['seller_label'],
         country:
             json["country"] == null ? null : Country.fromJson(json["country"]),
         city: json["city"] == null ? null : City.fromJson(json["city"]),
         area: json["area"] == null ? null : Area.fromJson(json["area"]),
         sellerVerify: SellerVerify?.fromJson(json["seller_verify"]),
+        taxNumber: json['tax_number'],
+        fbUrl: json['fb_url'],
+        twUrl: json['tw_url'],
+        goUrl: json['go_url'],
+        liUrl: json['li_url'],
+        yoUrl: json['yo_url'],
+        inUrl: json['in_url'],
+        drUrl: json['dr_url'],
+        twiUrl: json['twi_url'],
+        piUrl: json['pi_url'],
+        reUrl: json['re_url'],
+        userType: json['user_type'],
       );
 
   Map<String, dynamic> toJson() => {
@@ -127,11 +168,24 @@ class UserDetails {
         "service_area": serviceArea,
         "post_code": postCode,
         "image": image,
+        'seller_label': sellerLabel,
         "country_code": countryCode,
         "country": country?.toJson(),
         "city": city?.toJson(),
         "area": area?.toJson(),
-        "seller_verify": sellerVerify?.toJson()
+        "seller_verify": sellerVerify?.toJson(),
+        'tax_number': taxNumber,
+        'fb_url': fbUrl,
+        'tw_url': twUrl,
+        'go_url': goUrl,
+        'li_url': liUrl,
+        'yo_url': yoUrl,
+        'in_url': inUrl,
+        'dr_url': drUrl,
+        'twi_url': twiUrl,
+        'pi_url': piUrl,
+        're_url': reUrl,
+        'user_type': userType,
       };
 }
 

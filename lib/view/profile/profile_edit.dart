@@ -4,16 +4,17 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:provider/provider.dart';
-import 'package:qixer_seller/services/app_string_service.dart';
-import 'package:qixer_seller/services/dropdowns_services/area_dropdown_service.dart';
-import 'package:qixer_seller/services/dropdowns_services/country_dropdown_service.dart';
-import 'package:qixer_seller/services/dropdowns_services/state_dropdown_services.dart';
-import 'package:qixer_seller/services/profile_edit_service.dart';
-import 'package:qixer_seller/utils/common_helper.dart';
-import 'package:qixer_seller/utils/constant_colors.dart';
-import 'package:qixer_seller/utils/others_helper.dart';
-import 'package:qixer_seller/view/auth/signup/signup_helper.dart';
-import 'package:qixer_seller/view/profile/components/textarea_field.dart';
+import 'package:amrny_seller/services/app_string_service.dart';
+import 'package:amrny_seller/services/dropdowns_services/area_dropdown_service.dart';
+import 'package:amrny_seller/services/dropdowns_services/country_dropdown_service.dart';
+import 'package:amrny_seller/services/dropdowns_services/state_dropdown_services.dart';
+import 'package:amrny_seller/services/language_dropdown_helper.dart';
+import 'package:amrny_seller/services/profile_edit_service.dart';
+import 'package:amrny_seller/utils/common_helper.dart';
+import 'package:amrny_seller/utils/constant_colors.dart';
+import 'package:amrny_seller/utils/others_helper.dart';
+import 'package:amrny_seller/view/auth/signup/signup_helper.dart';
+import 'package:amrny_seller/view/profile/components/textarea_field.dart';
 import 'package:top_snackbar_flutter/custom_snack_bar.dart';
 import 'package:top_snackbar_flutter/top_snack_bar.dart';
 
@@ -34,62 +35,85 @@ class ProfileEditPage extends StatefulWidget {
 class _ProfileEditPageState extends State<ProfileEditPage> {
   TextEditingController fullNameController = TextEditingController();
   TextEditingController emailController = TextEditingController();
+  TextEditingController sellerLabelController = TextEditingController();
 
   TextEditingController postCodeController = TextEditingController();
   TextEditingController addressController = TextEditingController();
   TextEditingController phoneController = TextEditingController();
   TextEditingController aboutController = TextEditingController();
   String? countryCode;
-
+  Map<String, dynamic> profileJson = {};
+  List<String> socialFieldNames = [
+    'fb_url',
+    'tw_url',
+    'go_url',
+    'li_url',
+    'yo_url',
+    'in_url',
+    'dr_url',
+    'twi_url',
+    'pi_url',
+    're_url',
+  ];
+  List<String> socialLabelNames = [
+    'Facebook',
+    'Twitter',
+    'Google',
+    'Linkedin',
+    'Youtube',
+    'Instagram',
+    'Dribble',
+    'Twitch',
+    'Pinterest',
+    'Reddit',
+  ];
   @override
   void initState() {
     super.initState();
-    countryCode = Provider.of<ProfileService>(context, listen: false)
-        .profileDetails
-        .countryCode;
-    //set country code
-    Future.delayed(const Duration(milliseconds: 600), () {
-      Provider.of<ProfileEditService>(context, listen: false)
-          .setCountryCode(countryCode);
-    });
+    ProfileService profileProvider =
+        Provider.of<ProfileService>(context, listen: false);
+    ProfileEditService profileEditProvider =
+        Provider.of<ProfileEditService>(context, listen: false);
+    countryCode = profileProvider.profileDetails.countryCode;
+    profileEditProvider.setCountryCode(countryCode);
 
-    fullNameController.text =
-        Provider.of<ProfileService>(context, listen: false)
-                .profileDetails
-                .name ??
-            '';
-    emailController.text = Provider.of<ProfileService>(context, listen: false)
-            .profileDetails
-            .email ??
-        '';
+    fullNameController.text = profileProvider.profileDetails.name ?? '';
+    sellerLabelController.text =
+        profileProvider.profileDetails.sellerLabel ?? '';
+    emailController.text = profileProvider.profileDetails.email ?? '';
 
-    phoneController.text = Provider.of<ProfileService>(context, listen: false)
-            .profileDetails
-            .phone ??
-        '';
-    postCodeController.text =
-        Provider.of<ProfileService>(context, listen: false)
-                .profileDetails
-                .postCode ??
-            '';
-    addressController.text = Provider.of<ProfileService>(context, listen: false)
-            .profileDetails
-            .address ??
-        '';
-    aboutController.text = Provider.of<ProfileService>(context, listen: false)
-            .profileDetails
-            .about ??
-        '';
+    phoneController.text = profileProvider.profileDetails.phone ?? '';
+    postCodeController.text = profileProvider.profileDetails.postCode ?? '';
+    addressController.text = profileProvider.profileDetails.address ?? '';
+    aboutController.text = profileProvider.profileDetails.about ?? '';
     Provider.of<CountryDropdownService>(context, listen: false)
         .setCountryBasedOnUserProfile(context);
     Provider.of<StateDropdownService>(context, listen: false)
         .setStateBasedOnUserProfile(context);
     Provider.of<AreaDropdownService>(context, listen: false)
         .setAreaBasedOnUserProfile(context);
+    profileJson = profileProvider.profileDetails.toJson();
   }
 
   late AnimationController localAnimationController;
   XFile? pickedImage;
+
+  Widget _getSocialInput(int idx, AppStringService ln) {
+    return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+      const SizedBox(
+        height: 8,
+      ),
+      CommonHelper().labelCommon(ln.getString('${socialLabelNames[idx]} Link')),
+      CustomInput(
+        initialValue: profileJson[socialFieldNames[idx]],
+        hintText: ln.getString(
+            'https://www.${socialLabelNames[idx].toLowerCase()}.com/'),
+        textInputAction: TextInputAction.next,
+        onChanged: (val) => profileJson[socialFieldNames[idx]] = val,
+      ),
+    ]);
+  }
+
   @override
   Widget build(BuildContext context) {
     ConstantColors cc = ConstantColors();
@@ -225,6 +249,26 @@ class _ProfileEditPageState extends State<ProfileEditPage> {
                             height: 8,
                           ),
 
+                          //Company Name ============>
+                          CommonHelper()
+                              .labelCommon(ln.getString("Company name")),
+
+                          CustomInput(
+                            controller: sellerLabelController,
+                            validation: (value) {
+                              if (value == null || value.isEmpty) {
+                                return ln.getString(
+                                    'Please enter your company name');
+                              }
+                              return null;
+                            },
+                            hintText: ln.getString("Enter your company name"),
+                            icon: 'assets/icons/user.png',
+                            textInputAction: TextInputAction.next,
+                          ),
+                          const SizedBox(
+                            height: 8,
+                          ),
                           //Email ============>
                           CommonHelper().labelCommon(ln.getString("Email")),
 
@@ -294,6 +338,9 @@ class _ProfileEditPageState extends State<ProfileEditPage> {
                         height: 3,
                       ),
 
+                      const SizedBox(
+                        height: 18,
+                      ),
                       //dropdowns
                       const CountryStatesDropdowns(),
 
@@ -327,6 +374,24 @@ class _ProfileEditPageState extends State<ProfileEditPage> {
                         ],
                       ),
 
+                      Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            const SizedBox(
+                              height: 8,
+                            ),
+                            CommonHelper()
+                                .labelCommon(ln.getString("Tax Number")),
+                            CustomInput(
+                              initialValue: profileJson['tax_number'],
+                              hintText: ln.getString("Enter your tax number"),
+                              textInputAction: TextInputAction.next,
+                              onChanged: (val) =>
+                                  profileJson['tax_number'] = val,
+                            ),
+                          ]),
+                      for (int i = 0; i < socialFieldNames.length; i++)
+                        _getSocialInput(i, ln),
                       const SizedBox(
                         height: 25,
                       ),
@@ -360,6 +425,7 @@ class _ProfileEditPageState extends State<ProfileEditPage> {
                           //update profile
                           var result = await provider.updateProfile(
                             fullNameController.text,
+                            sellerLabelController.text,
                             emailController.text,
                             phoneController.text,
                             Provider.of<StateDropdownService>(context,
@@ -375,6 +441,7 @@ class _ProfileEditPageState extends State<ProfileEditPage> {
                             addressController.text,
                             aboutController.text,
                             pickedImage?.path,
+                            profileJson,
                             context,
                           );
                           if (result == true || result == false) {

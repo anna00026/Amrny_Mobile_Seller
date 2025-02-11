@@ -1,9 +1,9 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:qixer_seller/services/chart_service.dart';
-import 'package:qixer_seller/utils/constant_colors.dart';
-import 'package:qixer_seller/utils/responsive.dart';
+import 'package:amrny_seller/services/chart_service.dart';
+import 'package:amrny_seller/utils/constant_colors.dart';
+import 'package:amrny_seller/utils/responsive.dart';
 
 class ChartDashboard extends StatefulWidget {
   const ChartDashboard({super.key});

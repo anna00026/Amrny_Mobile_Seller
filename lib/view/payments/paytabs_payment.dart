@@ -5,9 +5,9 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:qixer_seller/services/payments_service/payment_service.dart';
-import 'package:qixer_seller/services/subscription_service.dart';
-import 'package:qixer_seller/services/wallet_service.dart';
+import 'package:amrny_seller/services/payments_service/payment_service.dart';
+import 'package:amrny_seller/services/subscription_service.dart';
+import 'package:amrny_seller/services/wallet_service.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 import 'package:http/http.dart' as http;
 
@@ -144,7 +144,7 @@ class PayTabsPayment extends StatelessWidget {
           "tran_type": "sale",
           "tran_class": "ecom",
           "cart_id": orderId.toString(),
-          "cart_description": "Qixer payment",
+          "cart_description": "Amrny payment",
           "cart_currency": currencyCode,
           "cart_amount": amount,
         }));

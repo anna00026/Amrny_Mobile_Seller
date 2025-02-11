@@ -1,7 +1,7 @@
 // import 'package:flutter/material.dart';
 // import 'package:provider/provider.dart';
-// import 'package:qixer_seller/utils/constant_colors.dart';
-// import 'package:qixer_seller/view/profile/profile_edit.dart';
+// import 'package:amrny_seller/utils/constant_colors.dart';
+// import 'package:amrny_seller/view/profile/profile_edit.dart';
 
 // import '../../../services/profile_service.dart';
 // import '../../../utils/common_helper.dart';

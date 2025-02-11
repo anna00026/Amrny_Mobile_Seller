@@ -6,9 +6,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:http/http.dart' as http;
 import 'package:provider/provider.dart';
-import 'package:qixer_seller/services/payments_service/payment_service.dart';
-import 'package:qixer_seller/services/subscription_service.dart';
-import 'package:qixer_seller/services/wallet_service.dart';
+import 'package:amrny_seller/services/payments_service/payment_service.dart';
+import 'package:amrny_seller/services/subscription_service.dart';
+import 'package:amrny_seller/services/wallet_service.dart';
 import 'dart:async';
 
 import '../../services/payments_service/payment_gateway_list_service.dart';
@@ -167,7 +167,7 @@ class _InstamojoPaymentPageState extends State<InstamojoPaymentPage> {
         Provider.of<RtlService>(context, listen: false).currencyCode;
     Map<String, String> body = {
       "amount": widget.amount, //amount to be paid
-      "purpose": "Qixer pay",
+      "purpose": "Amrny pay",
       "buyer_name": widget.name,
       "email": widget.email,
       "allow_repeated_payments": "true",

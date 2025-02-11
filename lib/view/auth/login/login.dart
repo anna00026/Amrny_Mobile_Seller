@@ -1,11 +1,12 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:qixer_seller/services/app_string_service.dart';
-import 'package:qixer_seller/utils/common_helper.dart';
-import 'package:qixer_seller/utils/constant_colors.dart';
-import 'package:qixer_seller/utils/constant_styles.dart';
-import 'package:qixer_seller/utils/custom_input.dart';
+import 'package:amrny_seller/services/app_string_service.dart';
+import 'package:amrny_seller/services/language_dropdown_helper.dart';
+import 'package:amrny_seller/utils/common_helper.dart';
+import 'package:amrny_seller/utils/constant_colors.dart';
+import 'package:amrny_seller/utils/constant_styles.dart';
+import 'package:amrny_seller/utils/custom_input.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../services/auth_services/login_service.dart';
@@ -67,10 +68,6 @@ class _LoginPageState extends State<LoginPage> {
             builder: (context, ln, child) => Column(
               children: [
                 ClipRRect(
-                  borderRadius: const BorderRadius.only(
-                    bottomLeft: Radius.circular(30),
-                    bottomRight: Radius.circular(30),
-                  ),
                   child: Container(
                     height: 230.0,
                     width: double.infinity,
@@ -264,9 +261,16 @@ class _LoginPageState extends State<LoginPage> {
                             ],
                           ),
 
+                          
+                        const SizedBox(
+                          height: 15,
+                        ),
+                        //dropdown for language
+                        LanguageDropdownHelper().languageDropdown(cc, context),
+
                           //Login button ==================>
                           const SizedBox(
-                            height: 13,
+                            height: 18,
                           ),
 
                           Consumer<LoginService>(

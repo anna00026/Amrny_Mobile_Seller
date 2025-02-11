@@ -1,8 +1,8 @@
 // import 'package:flutter/material.dart';
 // import 'package:provider/provider.dart';
-// import 'package:qixer_seller/utils/constant_colors.dart';
-// import 'package:qixer_seller/view/auth/signup/components/email_name_fields.dart';
-// import 'package:qixer_seller/view/auth/signup/signup_helper.dart';
+// import 'package:amrny_seller/utils/constant_colors.dart';
+// import 'package:amrny_seller/view/auth/signup/components/email_name_fields.dart';
+// import 'package:amrny_seller/view/auth/signup/signup_helper.dart';
 
 // import '../../../../services/auth_services/signup_service.dart';
 // import '../../../../utils/common_helper.dart';

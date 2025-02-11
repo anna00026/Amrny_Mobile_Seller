@@ -4,7 +4,7 @@ import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
 
 import 'package:http/http.dart' as http;
-import 'package:qixer_seller/utils/others_helper.dart';
+import 'package:amrny_seller/utils/others_helper.dart';
 
 import '../../view/auth/login/login.dart';
 import '../../view/auth/reset_password/reset_pass_otp_page.dart';
@@ -93,7 +93,7 @@ class ResetPasswordService with ChangeNotifier {
 
         print(data);
         setLoadingTrue();
-        if (baseApi == 'https://bytesed.com/laravel/qixer/api/v1') {
+        if (baseApi == 'https://bytesed.com/laravel/amrny/api/v1') {
           await Future.delayed(const Duration(seconds: 1));
           OthersHelper().showToast(
               'This feature is turned off in test mode', Colors.black);

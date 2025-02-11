@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:qixer_seller/services/app_string_service.dart';
-import 'package:qixer_seller/services/profile_service.dart';
-import 'package:qixer_seller/utils/common_helper.dart';
-import 'package:qixer_seller/utils/constant_colors.dart';
-import 'package:qixer_seller/utils/constant_styles.dart';
-import 'package:qixer_seller/utils/others_helper.dart';
-import 'package:qixer_seller/view/orders/payment_helper.dart';
-import 'package:qixer_seller/view/profile/profile_edit.dart';
+import 'package:amrny_seller/services/app_string_service.dart';
+import 'package:amrny_seller/services/language_dropdown_helper.dart';
+import 'package:amrny_seller/services/profile_service.dart';
+import 'package:amrny_seller/utils/common_helper.dart';
+import 'package:amrny_seller/utils/constant_colors.dart';
+import 'package:amrny_seller/utils/constant_styles.dart';
+import 'package:amrny_seller/utils/others_helper.dart';
+import 'package:amrny_seller/view/orders/payment_helper.dart';
+import 'package:amrny_seller/view/profile/profile_edit.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({Key? key}) : super(key: key);
@@ -198,8 +199,11 @@ class _ProfilePageState extends State<ProfilePage> {
                                             ln.getString('Address'),
                                             profileProvider
                                                     .profileDetails.address ??
-                                                '',
-                                            lastBorder: false),
+                                                ''),
+                                        const SizedBox(height: 5),
+                                        //dropdown for language
+                                        LanguageDropdownHelper()
+                                            .languageDropdown(cc, context),
                                       ]),
                                 ),
 
