@@ -248,33 +248,6 @@ class SidebarDrawer extends StatelessWidget {
                         );
                       }),
 
-                if (!isEmployee(profileProvider.profileDetails))
-                  Consumer<SubscriptionService>(
-                      builder: (context, ssProvider, child) {
-                    return ssProvider.showSubscription
-                        ? SidebarMenuItem(
-                            title: 'Subscriptions',
-                            leading: Icon(Icons.subscriptions_outlined,
-                                color: cc.primaryColor),
-                            ontap: () {
-                              if (!pProvider.subsPermission) {
-                                OthersHelper().showToast(
-                                    "You don't have permission to access this feature",
-                                    Colors.black);
-                                return;
-                              }
-
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute<void>(
-                                  builder: (BuildContext context) =>
-                                      const SubscriptionHistoryPage(),
-                                ),
-                              );
-                            })
-                        : const SizedBox();
-                  }),
-
                 SidebarMenuItem(
                     title: 'Chat',
                     leading:
